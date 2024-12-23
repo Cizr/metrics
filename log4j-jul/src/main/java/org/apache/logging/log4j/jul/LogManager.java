@@ -21,7 +21,10 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
+<<<<<<< HEAD
+=======
 import org.apache.logging.log4j.LoggingException;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.status.StatusLogger;
 import org.apache.logging.log4j.util.LoaderUtil;
 import org.apache.logging.log4j.util.PropertiesUtil;
@@ -58,6 +61,11 @@ public class LogManager extends java.util.logging.LogManager {
             }
         }
         if (adapter == null) {
+<<<<<<< HEAD
+            // Use API by default
+            // See https://github.com/apache/logging-log4j2/issues/2353
+            adapter = new ApiLoggerAdapter();
+=======
             // default adapter
             String adapterClassName;
             try {
@@ -73,6 +81,7 @@ public class LogManager extends java.util.logging.LogManager {
             } catch (final Exception e) {
                 throw LOGGER.throwing(new LoggingException(e));
             }
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
         loggerAdapter = adapter;
         LOGGER.info("Registered Log4j as the java.util.logging.LogManager.");

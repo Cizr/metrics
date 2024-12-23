@@ -16,8 +16,11 @@
  */
 package org.apache.logging.log4j.jul;
 
+<<<<<<< HEAD
+=======
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.util.logging.Filter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -48,12 +51,15 @@ public class ApiLogger extends Logger {
 
     ApiLogger(final ExtendedLogger logger) {
         super(logger.getName(), null);
+<<<<<<< HEAD
+=======
         final Level javaLevel = LevelTranslator.toJavaLevel(logger.getLevel());
         // "java.util.logging.LoggingPermission" "control"
         AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
             ApiLogger.super.setLevel(javaLevel);
             return null;
         });
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         this.logger = new WrappedLogger(logger);
     }
 
@@ -89,6 +95,16 @@ public class ApiLogger extends Logger {
     }
 
     @Override
+<<<<<<< HEAD
+    public Level getLevel() {
+        // Returns the effective level instead of the configured one.
+        // The configured level is not accessible through Log4j API.
+        return LevelTranslator.toJavaLevel(logger.getLevel());
+    }
+
+    @Override
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public void setLevel(final Level newLevel) throws SecurityException {
         StatusLogger.getLogger()
                 .error(
@@ -232,27 +248,47 @@ public class ApiLogger extends Logger {
 
     @Override
     public void entering(final String sourceClass, final String sourceMethod) {
+<<<<<<< HEAD
+        logger.traceEntry();
+=======
         logger.entry();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public void entering(final String sourceClass, final String sourceMethod, final Object param1) {
+<<<<<<< HEAD
+        logger.traceEntry(null, param1);
+=======
         logger.entry(param1);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public void entering(final String sourceClass, final String sourceMethod, final Object[] params) {
+<<<<<<< HEAD
+        logger.traceEntry(null, params);
+=======
         logger.entry(params);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public void exiting(final String sourceClass, final String sourceMethod) {
+<<<<<<< HEAD
+        logger.traceExit();
+=======
         logger.exit();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public void exiting(final String sourceClass, final String sourceMethod, final Object result) {
+<<<<<<< HEAD
+        logger.traceExit(result);
+=======
         logger.exit(result);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override

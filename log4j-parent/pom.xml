@@ -16,9 +16,13 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+  <modelVersion>4.0.0</modelVersion>
+=======
 
   <modelVersion>4.0.0</modelVersion>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-bom</artifactId>
@@ -53,15 +57,55 @@
          Plugin version properties (in alphabetical order)
          ================================================= -->
     <asciidoctor-maven-plugin.version>2.2.4</asciidoctor-maven-plugin.version>
+<<<<<<< HEAD
+    <docker-maven-plugin.version>0.45.0</docker-maven-plugin.version>
+    <exam-maven-plugin.version>4.13.5</exam-maven-plugin.version>
+    <maven-taglib-plugin.version>2.4</maven-taglib-plugin.version>
+    <!-- `surefire.version` property used in `apache.org:apache`: -->
+    <surefire.version>3.5.0</surefire.version>
+=======
     <docker-maven-plugin.version>0.43.4</docker-maven-plugin.version>
     <exam-maven-plugin.version>4.13.5</exam-maven-plugin.version>
     <maven-taglib-plugin.version>2.4</maven-taglib-plugin.version>
     <!-- `surefire.version` property used in `apache.org:apache`: -->
     <surefire.version>3.1.2</surefire.version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!-- =====================================================
          Direct dependency version properties (in alphabetical order)
          ===================================================== -->
+<<<<<<< HEAD
+    <activemq.version>6.1.3</activemq.version>
+    <angus-activation.version>2.0.2</angus-activation.version>
+    <angus-mail.version>2.0.3</angus-mail.version>
+    <assertj.version>3.26.3</assertj.version>
+    <awaitility.version>4.2.2</awaitility.version>
+    <bsh.version>2.0b6</bsh.version>
+    <cassandra.version>3.11.17</cassandra.version>
+    <cassandra-driver.version>3.11.5</cassandra-driver.version>
+    <commons-codec.version>1.17.1</commons-codec.version>
+    <commons-compress.version>1.27.1</commons-compress.version>
+    <commons-csv.version>1.11.0</commons-csv.version>
+    <commons-dbcp2.version>2.12.0</commons-dbcp2.version>
+    <commons-io.version>2.17.0</commons-io.version>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <commons-logging.version>1.3.4</commons-logging.version>
+    <!-- `com.conversantmedia:disruptor` version 1.2.16 requires Java 9: -->
+    <conversant.disruptor.version>1.2.15</conversant.disruptor.version>
+    <disruptor.version>3.4.4</disruptor.version>
+    <embedded-ldap.version>0.9.0</embedded-ldap.version>
+    <felix.version>7.0.5</felix.version>
+    <groovy.version>4.0.22</groovy.version>
+    <guava.version>33.3.0-jre</guava.version>
+    <h2.version>2.2.224</h2.version>
+    <hamcrest.version>3.0</hamcrest.version>
+    <HdrHistogram.version>2.2.2</HdrHistogram.version>
+    <hsqldb.version>2.7.3</hsqldb.version>
+    <jackson-bom.version>2.17.2</jackson-bom.version>
+    <!-- Override the version in Jakarta EE 9 BOM: -->
+    <jakarta-activation.version>2.1.3</jakarta-activation.version>
+    <jakarta-mail.version>2.1.3</jakarta-mail.version>
+=======
     <activemq.version>5.17.4</activemq.version>
     <angus-activation.version>2.0.1</angus-activation.version>
     <angus-mail.version>2.0.2</angus-mail.version>
@@ -97,6 +141,7 @@
     <!-- Override the version in Jakarta EE 9 BOM: -->
     <jakarta-activation.version>2.1.2</jakarta-activation.version>
     <jakarta-mail.version>2.1.2</jakarta-mail.version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <!-- BOM with Jakarta EE 9 APIs: -->
     <jakartaee-bom.version>9.1.0</jakartaee-bom.version>
     <!-- No BOM for Java EE 8 APIs, so we list them separately: -->
@@ -108,6 +153,29 @@
     <javax-servlet.version>4.0.1</javax-servlet.version>
     <javax-servlet-jsp.version>2.3.3</javax-servlet-jsp.version>
     <jansi.version>2.4.1</jansi.version>
+<<<<<<< HEAD
+    <java-allocation-instrumenter.version>3.3.4</java-allocation-instrumenter.version>
+    <jconsole.version>1.7.0</jconsole.version>
+    <jctools.version>4.0.5</jctools.version>
+    <jeromq.version>0.6.0</jeromq.version>
+    <jmdns.version>3.5.12</jmdns.version>
+    <jmh.version>1.37</jmh.version>
+    <json-unit.version>2.40.1</json-unit.version>
+    <junit.version>4.13.2</junit.version>
+    <junit-jupiter.version>5.10.3</junit-jupiter.version>
+    <junit-pioneer.version>1.9.1</junit-pioneer.version>
+    <kafka.version>3.8.0</kafka.version>
+    <lightcouch.version>0.2.0</lightcouch.version>
+    <log4j.version>1.2.17</log4j.version>
+    <log4j2-cachefile-transformer.version>2.15.0</log4j2-cachefile-transformer.version>
+    <log4j2-ecs-layout.version>1.6.0</log4j2-ecs-layout.version>
+    <logback.version>1.3.14</logback.version>
+    <maven.version>3.9.9</maven.version>
+    <mockito.version>4.11.0</mockito.version>
+    <nashorn.version>15.4</nashorn.version>
+    <org.eclipse.osgi.version>3.21.0</org.eclipse.osgi.version>
+    <org.eclipse.persistence.version>2.7.15</org.eclipse.persistence.version>
+=======
     <java-allocation-instrumenter.version>3.3.3</java-allocation-instrumenter.version>
     <jconsole.version>1.7.0</jconsole.version>
     <jctools.version>4.0.1</jctools.version>
@@ -133,10 +201,22 @@
     <netty.version>4.1.101.Final</netty.version>
     <org.eclipse.osgi.version>3.13.0.v20180226-1711</org.eclipse.osgi.version>
     <org.eclipse.persistence.version>2.7.13</org.eclipse.persistence.version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <oro.version>2.0.8</oro.version>
     <!-- The OSGi API version MUST always be the MINIMUM version Log4j supports: -->
     <osgi.api.version>6.0.0</osgi.api.version>
     <pax-exam.version>4.13.5</pax-exam.version>
+<<<<<<< HEAD
+    <plexus-utils.version>3.5.1</plexus-utils.version>
+    <spring-boot.version>2.7.18</spring-boot.version>
+    <spring-framework.version>5.3.39</spring-framework.version>
+    <system-stubs.version>2.0.3</system-stubs.version>
+    <velocity.version>1.7</velocity.version>
+    <wiremock.version>2.35.2</wiremock.version>
+    <xmlunit.version>2.10.0</xmlunit.version>
+    <xz.version>1.10</xz.version>
+    <zstd.version>1.5.6-6</zstd.version>
+=======
     <plexus-utils.version>3.5.0</plexus-utils.version>
     <slf4j.version>2.0.9</slf4j.version>
     <!-- Last version before a breaking change -->
@@ -151,6 +231,7 @@
     <xmlunit.version>2.9.1</xmlunit.version>
     <xz.version>1.9</xz.version>
     <zstd.version>1.5.5-10</zstd.version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!-- =====================================================
          Pinned transitive dependency version properties (in alphabetical order)
@@ -161,11 +242,18 @@
          ===================================================== -->
     <asm.version>9.6</asm.version>
     <byte-buddy.version>1.14.9</byte-buddy.version>
+<<<<<<< HEAD
+    <commons-pool2.version>2.12.0</commons-pool2.version>
+    <httpclient.version>4.5.14</httpclient.version>
+    <httpcore.version>4.4.16</httpcore.version>
+    <jna.version>5.15.0</jna.version>
+=======
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-pool2.version>2.11.1</commons-pool2.version>
     <httpclient.version>4.5.14</httpclient.version>
     <httpcore.version>4.4.16</httpcore.version>
     <jna.version>5.13.0</jna.version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
   </properties>
 
@@ -189,7 +277,11 @@
       <!-- END: Modules that are not published (and hence missing in the BOM) -->
 
       <dependency>
+<<<<<<< HEAD
+        <groupId>org.apache.groovy</groupId>
+=======
         <groupId>org.codehaus.groovy</groupId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <artifactId>groovy-bom</artifactId>
         <version>${groovy.version}</version>
         <type>pom</type>
@@ -213,6 +305,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-bom</artifactId>
         <version>${jetty.version}</version>
@@ -221,6 +315,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
         <version>${junit-jupiter.version}</version>
@@ -229,6 +324,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>io.fabric8</groupId>
         <artifactId>kubernetes-client-bom</artifactId>
         <version>${kubernetes-client.version}</version>
@@ -237,6 +334,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.mockito</groupId>
         <artifactId>mockito-bom</artifactId>
         <version>${mockito.version}</version>
@@ -245,6 +343,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>io.netty</groupId>
         <artifactId>netty-bom</artifactId>
         <version>${netty.version}</version>
@@ -253,6 +353,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.springframework</groupId>
         <artifactId>spring-framework-bom</artifactId>
         <version>${spring-framework.version}</version>
@@ -305,12 +406,15 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>org.mongodb</groupId>
         <artifactId>bson</artifactId>
         <version>${mongodb.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.apache.cassandra</groupId>
         <artifactId>cassandra-all</artifactId>
         <version>${cassandra.version}</version>
@@ -382,12 +486,15 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>commons-httpclient</groupId>
         <artifactId>commons-httpclient</artifactId>
         <version>${commons-httpclient.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>${commons-io.version}</version>
@@ -412,6 +519,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>de.flapdoodle.embed</groupId>
         <artifactId>de.flapdoodle.embed.mongo</artifactId>
         <version>${flapdoodle-embed.version}</version>
@@ -430,6 +539,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>com.conversantmedia</groupId>
         <artifactId>disruptor</artifactId>
         <version>${conversant.disruptor.version}</version>
@@ -442,17 +552,22 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>co.elastic.clients</groupId>
         <artifactId>elasticsearch-java</artifactId>
         <version>${elasticsearch-java.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.zapodot</groupId>
         <artifactId>embedded-ldap-junit</artifactId>
         <version>${embedded-ldap.version}</version>
       </dependency>
 
+<<<<<<< HEAD
+=======
       <dependency>
         <groupId>org.apache.flume.flume-ng-channels</groupId>
         <artifactId>flume-file-channel</artifactId>
@@ -561,6 +676,7 @@
         </exclusions>
       </dependency>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <!-- Transitive dependency: setting upper bound of declared versions -->
       <dependency>
         <groupId>com.google.guava</groupId>
@@ -582,6 +698,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-core</artifactId>
         <version>${hadoop.version}</version>
@@ -606,6 +724,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.hamcrest</groupId>
         <artifactId>hamcrest</artifactId>
         <version>${hamcrest.version}</version>
@@ -740,12 +859,15 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>com.sleepycat</groupId>
         <artifactId>je</artifactId>
         <version>${je.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.zeromq</groupId>
         <artifactId>jeromq</artifactId>
         <version>${jeromq.version}</version>
@@ -858,6 +980,11 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+        <groupId>org.openjdk.nashorn</groupId>
+        <artifactId>nashorn-core</artifactId>
+        <version>${nashorn.version}</version>
+=======
         <groupId>org.mongodb</groupId>
         <artifactId>mongodb-driver-core</artifactId>
         <version>${mongodb.version}</version>
@@ -873,6 +1000,7 @@
         <groupId>org.mongodb</groupId>
         <artifactId>mongodb-driver-sync</artifactId>
         <version>${mongodb.version}</version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       </dependency>
 
       <dependency>
@@ -882,7 +1010,11 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+        <groupId>org.eclipse.platform</groupId>
+=======
         <groupId>org.eclipse.tycho</groupId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <artifactId>org.eclipse.osgi</artifactId>
         <version>${org.eclipse.osgi.version}</version>
       </dependency>
@@ -949,6 +1081,8 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
@@ -961,6 +1095,7 @@
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot</artifactId>
         <version>${spring-boot.version}</version>
@@ -968,6 +1103,21 @@
 
       <dependency>
         <groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j2</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <artifactId>spring-boot-starter-test</artifactId>
         <version>${spring-boot.version}</version>
         <exclusions>
@@ -979,6 +1129,21 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring-framework.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jcl</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>uk.org.webcompere</groupId>
         <artifactId>system-stubs-core</artifactId>
         <version>${system-stubs.version}</version>
@@ -992,12 +1157,15 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-juli</artifactId>
         <version>${tomcat-juli.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.apache.velocity</groupId>
         <artifactId>velocity</artifactId>
         <version>${velocity.version}</version>
@@ -1011,12 +1179,15 @@
       </dependency>
 
       <dependency>
+<<<<<<< HEAD
+=======
         <groupId>com.fasterxml.woodstox</groupId>
         <artifactId>woodstox-core</artifactId>
         <version>${woodstox.version}</version>
       </dependency>
 
       <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <groupId>org.xmlunit</groupId>
         <artifactId>xmlunit-core</artifactId>
         <version>${xmlunit.version}</version>
@@ -1083,7 +1254,11 @@
     <pluginManagement>
       <plugins>
 
+<<<<<<< HEAD
+        <!-- used by `docker` profile -->
+=======
         <!-- used by `docker` profile in `log4j-layout-template-json-test`: -->
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <plugin>
           <groupId>io.fabric8</groupId>
           <artifactId>docker-maven-plugin</artifactId>
@@ -1108,6 +1283,43 @@
     </pluginManagement>
 
     <plugins>
+<<<<<<< HEAD
+
+      <!--
+        ~ A previous `generate-module-descriptors` execution leaves:
+        ~  * `target/classes/module-info.class` files, which interferes with `maven-compiler-plugin`,
+        ~  * `target/classes/META-INF/versions` folder, which switch `bnd-maven-plugin` into MRJ mode.
+        ~
+        ~ TODO: test BND multi-release mode in 2.23.0.
+        -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>delete-module-descriptors</id>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <phase>process-sources</phase>
+            <configuration>
+              <excludeDefaultDirectories>true</excludeDefaultDirectories>
+              <filesets>
+                <fileset>
+                  <directory>${project.build.outputDirectory}</directory>
+                  <includes>
+                    <include>module-info.class</include>
+                    <include>META-INF/versions/**</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <!--
         ~ Some external logging bridges can interfere with our tests, giving false negatives.
         -->
@@ -1144,7 +1356,203 @@
           </execution>
         </executions>
       </plugin>
+<<<<<<< HEAD
+
+      <plugin>
+        <groupId>org.codehaus.gmavenplus</groupId>
+        <artifactId>gmavenplus-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>ban-static-transitive</id>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <continueExecuting>false</continueExecuting>
+              <scripts>
+                <script><![CDATA[
+                  import java.io.StringWriter
+                  import java.util.spi.ToolProvider
+
+                  if ("jar" != project.packaging) {
+                      log.info("Skipping module descriptor check, since the project type is not `jar`.")
+                      return
+                  }
+                  String jarFile = project.build.directory + "/" + project.build.finalName + ".jar";
+                  if (!new File(jarFile).exists()) {
+                      log.info("Skipping module descriptor check, since `" + jarFile + "` is missing.")
+                      return
+                  }
+                  StringWriter out = new StringWriter()
+                  StringWriter err = new StringWriter()
+                  ToolProvider jar = ToolProvider.findFirst("jar").orElseThrow()
+                  int result = jar.run(new PrintWriter(out), new PrintWriter(err), "-d", "-f", jarFile)
+                  if (result != 0) {
+                      throw new RuntimeException("Failed to decompile the module descriptor in `" + jarFile + "`:\n" + err)
+                  }
+                  log.debug("Module descriptor: " + out)
+                  for (String line : out.toString().split("\r?\n", -1)) {
+                      if (line.contains("static") && line.contains("transitive")) {
+                          throw new RuntimeException("The `static` and `transitive` modifiers should not be use together: " + line)
+                      }
+                  }
+                  log.info("Successfully verified module descriptor in `" + jarFile + "`.")
+              ]]></script>
+              </scripts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
+  <profiles>
+
+    <!-- `plugin-processing` profile containing configuration specific to `@Plugin`-annotated members -->
+    <profile>
+
+      <id>plugin-processing</id>
+
+      <!-- Profile gets activated using a file instead of, say, a property defined by the child `pom.xml`.
+           Since a Maven property lookup requires model interpolation and that happens after the profile activation phase.
+           See: https://maven.apache.org/ref/3.9.6/maven-model-builder -->
+      <activation>
+        <file>
+          <exists>.log4j-plugin-processing-activator</exists>
+        </file>
+      </activation>
+
+      <properties>
+        <log4j.docgen.pluginDescriptorsDir.skipped>${maven.multiModuleProjectDirectory}/target/plugin-descriptors/skipped</log4j.docgen.pluginDescriptorsDir.skipped>
+        <log4j.docgen.pluginDescriptorsDir>${log4j.docgen.pluginDescriptorsDir.phase2}</log4j.docgen.pluginDescriptorsDir>
+      </properties>
+
+      <build>
+        <plugins>
+
+          <!-- This is a workaround to effectively disable Log4j Docgen `DescriptorGenerator` plugin processor.
+               Once Log4j Docgen `>0.9.0` is released (containing the new `log4j.docgen.skip` argument to `DescriptorGenerator`):
+               1. Remove this `build-helper:bsh-property` execution
+               2. Remove the `log4j.docgen.pluginDescriptorsDir.skipped` property
+               3. In the `PluginProcessor` execution configuration
+                  - Add `-Alog4j.docgen.skip=${log4j.docgen.skip}` argument
+                  - Set `-Alog4j.docgen.descriptorFilePath=${log4j.docgen.pluginDescriptorsDir}/${project.artifactId}-plugins.xml` argument -->
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>define-log4jDocgenDescriptorFilepath</id>
+                <goals>
+                  <goal>bsh-property</goal>
+                </goals>
+                <phase>process-resources</phase>
+                <configuration>
+                  <properties>
+                    <property>log4jDocgenDescriptorFilepath</property>
+                  </properties>
+                  <source><![CDATA[
+                    Properties properties = project.getProperties();
+                    String pluginDescriptorsDir = "true".equals(properties.getProperty("log4j.docgen.skip"))
+                            ? properties.getProperty("log4j.docgen.pluginDescriptorsDir.skipped")
+                            : properties.getProperty("log4j.docgen.pluginDescriptorsDir");
+                    String log4jDocgenDescriptorFilepath = String.format("%s/%s-plugins.xml", new Object[] {
+                        pluginDescriptorsDir, project.getArtifactId()
+                    });
+                  ]]></source>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- We will compile sources as usual and make a second pass to process plugins, because...
+               `log4j-core` contains `PluginProcessor`, that is responsible for generating `Log4j2Plugins.dat` from `@Plugin`-annotated members.
+               `log4j-core` also contains `@Plugin`-annotated members too.
+               That is, we need `log4j-core` to build `log4j-core`.
+               To work around this chicken-and-egg problem, we build as follows:
+
+               1. Compile sources using the `default-compile` default compilation execution.
+                  This will generate the `PluginProcessor` class.
+
+               2. Make a second compilation pass using the generated `PluginProcessor`. -->
+          <plugin>
+
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+
+            <executions>
+
+              <!-- 1st pass: compile sources as usual.
+                   This needs to be explicitly stated here to set the order of execution. -->
+              <execution>
+                <id>default-compile</id>
+              </execution>
+
+              <!-- 1st pass for tests: compile sources as usual.
+                   This needs to be explicitly stated here to set the order of execution. -->
+              <execution>
+                <id>default-testCompile</id>
+              </execution>
+
+              <!-- 2nd pass: exclusively generate plugin descriptors -->
+              <execution>
+                <id>generate-plugin-descriptors</id>
+                <goals>
+                  <goal>compile</goal>
+                  <goal>testCompile</goal>
+                </goals>
+                <configuration combine.self="override">
+                  <annotationProcessorPaths>
+                    <!-- Include `org.apache.logging.log4j.docgen.processor.DescriptorGenerator` that generates `<artifactId>-plugins.xml` -->
+                    <path>
+                      <groupId>org.apache.logging.log4j</groupId>
+                      <artifactId>log4j-docgen</artifactId>
+                      <version>${log4j-docgen.version}</version>
+                    </path>
+                    <!-- Include `log4j-core` providing `org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor` that generates `Log4j2Plugins.dat` -->
+                    <path>
+                      <groupId>org.apache.logging.log4j</groupId>
+                      <artifactId>log4j-core</artifactId>
+                      <version>${project.version}</version>
+                    </path>
+                  </annotationProcessorPaths>
+                  <annotationProcessors>
+                    <!-- Process sources using `org.apache.logging.log4j.docgen.processor.DescriptorGenerator` to generate `<artifactId>-plugins.xml`.
+                         `DescriptorGenerator` must precede `PluginProcessor`, since the latter *claims* the `@Plugin`.
+                         Once claimed, `javac` doesn't pass those sources to other processors. -->
+                    <processor>org.apache.logging.log4j.docgen.processor.DescriptorGenerator</processor>
+                    <!-- Process sources using `org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor` to generate `Log4j2Plugins.dat` -->
+                    <processor>org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor</processor>
+                  </annotationProcessors>
+                  <compilerArgs>
+                    <!-- Provide `org.apache.logging.log4j.docgen.processor.DescriptorGenerator` arguments: -->
+                    <arg>-Alog4j.docgen.descriptorFilePath=${log4jDocgenDescriptorFilepath}</arg>
+                    <arg>-Alog4j.docgen.groupId=${project.groupId}</arg>
+                    <arg>-Alog4j.docgen.artifactId=${project.artifactId}</arg>
+                    <arg>-Alog4j.docgen.version=${project.version}</arg>
+                    <arg>-Alog4j.docgen.description=${project.description}</arg>
+                    <arg>-Alog4j.docgen.typeFilter.excludePattern=${log4j.docgen.typeFilter.excludePattern}</arg>
+                  </compilerArgs>
+                  <proc>only</proc>
+                </configuration>
+              </execution>
+
+            </executions>
+
+          </plugin>
+
+        </plugins>
+      </build>
+
+    </profile>
+
+  </profiles>
+
+=======
+    </plugins>
+  </build>
+
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

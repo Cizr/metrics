@@ -18,6 +18,12 @@ package org.apache.logging.log4j.mongodb4;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+<<<<<<< HEAD
+import java.util.function.Supplier;
+import org.apache.logging.log4j.test.junit.ExtensionContextAnchor;
+import org.apache.logging.log4j.test.junit.TypeBasedParameterResolver;
+import org.apache.logging.log4j.util.PropertiesUtil;
+=======
 import de.flapdoodle.embed.mongo.commands.ServerAddress;
 import de.flapdoodle.embed.mongo.distribution.Version;
 import de.flapdoodle.embed.mongo.packageresolver.Command;
@@ -47,12 +53,18 @@ import org.apache.logging.log4j.test.TestProperties;
 import org.apache.logging.log4j.test.junit.ExtensionContextAnchor;
 import org.apache.logging.log4j.test.junit.TestPropertySource;
 import org.apache.logging.log4j.test.junit.TypeBasedParameterResolver;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtensionContext.Store.CloseableResource;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 
+<<<<<<< HEAD
+class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> implements BeforeAllCallback {
+
+    static final String PORT_PROPERTY = "log4j2.mongo.port";
+=======
 public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> implements BeforeAllCallback {
 
     private static final Logger LOGGER = StatusLogger.getLogger();
@@ -78,6 +90,7 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
         }
         throw new NotImplementedException(loggingTarget.toString());
     }
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     public MongoDb4Resolver() {
         super(MongoClient.class);
@@ -85,6 +98,9 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
 
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
+<<<<<<< HEAD
+        ExtensionContextAnchor.setAttribute(MongoClientHolder.class, new MongoClientHolder(), context);
+=======
         final TestProperties props = TestPropertySource.createProperties(context);
         final Mongod mongod = Mongod.builder()
                 .processOutput(Derive.given(Name.class)
@@ -120,6 +136,7 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
                 })
                 .build();
         ExtensionContextAnchor.setAttribute(MongoClientHolder.class, new MongoClientHolder(mongod, props), context);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
@@ -129,6 +146,15 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
                 .get();
     }
 
+<<<<<<< HEAD
+    private static final class MongoClientHolder implements CloseableResource, Supplier<MongoClient> {
+        private final MongoClient mongoClient;
+
+        public MongoClientHolder() {
+            mongoClient = MongoClients.create(String.format(
+                    "mongodb://localhost:%d",
+                    PropertiesUtil.getProperties().getIntegerProperty(MongoDb4TestConstants.PROP_NAME_PORT, 27017)));
+=======
     public enum LoggingTarget {
         CONSOLE,
         STATUS_LOGGER;
@@ -148,6 +174,7 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
             final ServerAddress addr = mongodProcess.getServerAddress();
             mongoClient = MongoClients.create(String.format("mongodb://%s:%d", addr.getHost(), addr.getPort()));
             props.setProperty(MongoDb4TestConstants.PROP_NAME_PORT, addr.getPort());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
 
         @Override
@@ -158,6 +185,8 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
         @Override
         public void close() throws Exception {
             mongoClient.close();
+<<<<<<< HEAD
+=======
             state.close();
         }
     }
@@ -180,6 +209,7 @@ public class MongoDb4Resolver extends TypeBasedParameterResolver<MongoClient> im
             // we still need to remove line endings that are passed on by
             // StreamToLineProcessor...
             return line.replaceAll("[\n\r]+", "");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
     }
 }

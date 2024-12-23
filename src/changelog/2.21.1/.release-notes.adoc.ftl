@@ -27,6 +27,11 @@ The Log4j 2.21.1 API, as well as the other artifacts, maintains binary compatibi
 Apache Log4j 2.21.1 requires Java 8 to run.
 The build requires JDK 11 and generates reproducible binaries.
 
+<<<<<<< HEAD
+For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, get support, or suggestions for improvement, see
+https://logging.apache.org/log4j/2.x/index.html[the Apache Log4j 2 website].
+=======
 For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, get support, or suggestions for improvement, see http://logging.apache.org/log4j/2.x/[the Apache Log4j 2 website].
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 <#include "../.changelog.adoc.ftl">

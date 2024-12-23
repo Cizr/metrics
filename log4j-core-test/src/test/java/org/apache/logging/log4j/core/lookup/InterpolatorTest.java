@@ -16,9 +16,20 @@
  */
 package org.apache.logging.log4j.core.lookup;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.Mockito.mock;
+=======
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -29,6 +40,13 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.ThreadContext;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.Logger;
+<<<<<<< HEAD
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.Configuration;
+import org.apache.logging.log4j.core.config.LoggerContextAware;
+import org.apache.logging.log4j.core.config.plugins.Plugin;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 import org.apache.logging.log4j.core.test.junit.JndiRule;
 import org.apache.logging.log4j.message.StringMapMessage;
@@ -36,11 +54,19 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.ExternalResource;
 import org.junit.rules.RuleChain;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.Issue;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Tests {@link Interpolator}.
  */
 public class InterpolatorTest {
+<<<<<<< HEAD
+    public static final String TEST_LOOKUP = "interpolator_test";
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     private static final String TESTKEY = "TestKey";
     private static final String TESTKEY2 = "TestKey2";
@@ -175,4 +201,69 @@ public class InterpolatorTest {
                 .build();
         assertEquals("mapMessage", interpolator.lookup(event, "map:key"));
     }
+<<<<<<< HEAD
+
+    @Test
+    @Issue("https://github.com/apache/logging-log4j2/issues/2309")
+    public void testContextAndConfigurationPropagation() {
+        final Interpolator interpolator = new Interpolator();
+        assertThat(getConfiguration(interpolator)).isNull();
+        assertThat(getLoggerContext(interpolator)).isNull();
+
+        final Lookup lookup = (Lookup) interpolator.getStrLookupMap().get(TEST_LOOKUP);
+        assertThat(lookup)
+                .isNotNull()
+                .as("Configuration and logger context are null")
+                .extracting(Lookup::getConfiguration, Lookup::getLoggerContext)
+                .containsExactly(null, null);
+
+        // Evaluation does not throw, even if config and context are null.
+        assertDoesNotThrow(() -> interpolator.evaluate(null, TEST_LOOKUP + ":any_key"));
+
+        final Configuration config = mock(Configuration.class);
+        interpolator.setConfiguration(config);
+        assertThat(getConfiguration(interpolator)).isEqualTo(config);
+        assertThat(lookup.getConfiguration()).as("Configuration propagates").isEqualTo(config);
+
+        final LoggerContext context = mock(LoggerContext.class);
+        interpolator.setLoggerContext(context);
+        assertThat(getLoggerContext(interpolator)).isEqualTo(context);
+        assertThat(lookup.getLoggerContext()).as("Logger context propagates").isEqualTo(context);
+    }
+
+    // Used in tests from other packages
+    public static Configuration getConfiguration(final Interpolator interpolator) {
+        return interpolator.configuration;
+    }
+
+    // Used in tests from other packages
+    public static LoggerContext getLoggerContext(final Interpolator interpolator) {
+        return interpolator.loggerContext.get();
+    }
+
+    @Plugin(name = TEST_LOOKUP, category = StrLookup.CATEGORY)
+    public static class Lookup extends AbstractConfigurationAwareLookup implements LoggerContextAware {
+
+        private LoggerContext loggerContext;
+
+        public Configuration getConfiguration() {
+            return configuration;
+        }
+
+        public LoggerContext getLoggerContext() {
+            return loggerContext;
+        }
+
+        @Override
+        public void setLoggerContext(final LoggerContext loggerContext) {
+            this.loggerContext = loggerContext;
+        }
+
+        @Override
+        public String lookup(final LogEvent event, final String key) {
+            return null;
+        }
+    }
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 }

@@ -26,9 +26,13 @@ import org.apache.logging.log4j.message.Message;
 import org.apache.logging.log4j.message.ParameterizedMessage;
 import org.apache.logging.log4j.message.SimpleMessage;
 import org.apache.logging.log4j.spi.ExtendedLogger;
+<<<<<<< HEAD
+import org.slf4j.Marker;
+=======
 import org.apache.logging.log4j.util.LoaderUtil;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.slf4j.spi.LocationAwareLogger;
 
 /**
@@ -39,10 +43,14 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
     public static final String FQCN = Log4jLogger.class.getName();
 
     private static final long serialVersionUID = 7869000638091304316L;
+<<<<<<< HEAD
+
+=======
     private static final Marker EVENT_MARKER = MarkerFactory.getMarker("EVENT");
     private static final EventDataConverter CONVERTER = createConverter();
 
     private final boolean eventLogger;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     private transient ExtendedLogger logger;
     private final String name;
     private transient Log4jMarkerFactory markerFactory;
@@ -50,7 +58,10 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
     public Log4jLogger(final Log4jMarkerFactory markerFactory, final ExtendedLogger logger, final String name) {
         this.markerFactory = markerFactory;
         this.logger = logger;
+<<<<<<< HEAD
+=======
         this.eventLogger = "EventLogger".equals(name);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         this.name = name;
     }
 
@@ -370,10 +381,14 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
         }
         final Message msg;
         final Throwable actualThrowable;
+<<<<<<< HEAD
+        if (params == null) {
+=======
         if (CONVERTER != null && eventLogger && marker != null && marker.contains(EVENT_MARKER)) {
             msg = CONVERTER.convertEvent(message, params, throwable);
             actualThrowable = throwable != null ? throwable : msg.getThrowable();
         } else if (params == null) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             msg = new SimpleMessage(message);
             actualThrowable = throwable;
         } else {
@@ -407,6 +422,8 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
         aOutputStream.defaultWriteObject();
     }
 
+<<<<<<< HEAD
+=======
     private static EventDataConverter createConverter() {
         try {
             LoaderUtil.loadClass("org.slf4j.ext.EventData");
@@ -416,6 +433,7 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
         }
     }
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     private static Level getLevel(final int i) {
         switch (i) {
             case TRACE_INT:

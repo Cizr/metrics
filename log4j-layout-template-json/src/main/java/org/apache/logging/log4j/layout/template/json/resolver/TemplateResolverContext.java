@@ -30,7 +30,11 @@ import org.apache.logging.log4j.layout.template.json.util.JsonWriter;
  *
  * @see TemplateResolverFactory
  */
+<<<<<<< HEAD
+public interface TemplateResolverContext<V, C extends TemplateResolverContext<V, C>> {
+=======
 interface TemplateResolverContext<V, C extends TemplateResolverContext<V, C>> {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     Class<C> getContextClass();
 
@@ -52,7 +56,11 @@ interface TemplateResolverContext<V, C extends TemplateResolverContext<V, C>> {
      * @param node the root object of the read template
      * @return the root object of the template to be compiled
      */
+<<<<<<< HEAD
+    default Object processTemplateBeforeResolverInjection(final Object node) {
+=======
     default Object processTemplateBeforeResolverInjection(Object node) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         return node;
     }
 }

@@ -16,22 +16,42 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>${revision}</version>
     <relativePath>../log4j-parent</relativePath>
   </parent>
+<<<<<<< HEAD
+
+  <artifactId>log4j-docker</artifactId>
+
+  <name>Apache Log4j Docker Library</name>
+  <description>Apache Log4j Docker Support</description>
+
+=======
   <artifactId>log4j-docker</artifactId>
   <packaging>jar</packaging>
   <name>Apache Log4j Docker Library</name>
   <description>Apache Log4j Docker Support</description>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <properties>
 
     <!--
       ~ OSGi and JPMS options
       -->
+<<<<<<< HEAD
+    <Fragment-Host>org.apache.logging.log4j.core</Fragment-Host>
+  </properties>
+
+=======
     <bnd-extra-module-options>
       <!-- Non detected module names -->
       com.fasterxml.jackson.core;substitute="jackson-core",
@@ -39,6 +59,7 @@
     </bnd-extra-module-options>
     <Fragment-Host>org.apache.logging.log4j.core</Fragment-Host>
   </properties>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <dependencies>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -68,6 +89,8 @@
     </dependency>
   </dependencies>
 
+<<<<<<< HEAD
+=======
   <build>
     <plugins>
 
@@ -93,4 +116,5 @@
     </plugins>
   </build>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

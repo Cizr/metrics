@@ -20,7 +20,13 @@ import static org.apache.logging.log4j.core.test.hamcrest.Descriptors.that;
 import static org.apache.logging.log4j.core.test.hamcrest.FileMatchers.hasName;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.hasItemInArray;
+<<<<<<< HEAD
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import org.apache.logging.log4j.Logger;

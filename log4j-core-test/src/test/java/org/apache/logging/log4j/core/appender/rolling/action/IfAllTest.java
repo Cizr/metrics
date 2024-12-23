@@ -16,7 +16,15 @@
  */
 package org.apache.logging.log4j.core.appender.rolling.action;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.List;
 import org.apache.logging.log4j.core.config.Node;
@@ -29,14 +37,26 @@ import org.apache.logging.log4j.status.StatusLogger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.SetSystemProperty;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Tests the And composite condition.
  */
+<<<<<<< HEAD
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+class IfAllTest {
+
+    @Test
+    void testAccept() {
+=======
 public class IfAllTest {
 
     @Test
     public void testAccept() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final PathCondition TRUE = new FixedCondition(true);
         final PathCondition FALSE = new FixedCondition(false);
         assertTrue(IfAll.createAndCondition(TRUE, TRUE).accept(null, null, null));
@@ -46,12 +66,20 @@ public class IfAllTest {
     }
 
     @Test
+<<<<<<< HEAD
+    void testEmptyIsFalse() {
+=======
     public void testEmptyIsFalse() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         assertFalse(IfAll.createAndCondition().accept(null, null, null));
     }
 
     @Test
+<<<<<<< HEAD
+    void testBeforeTreeWalk() {
+=======
     public void testBeforeTreeWalk() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final CountingCondition counter = new CountingCondition(true);
         final IfAll and = IfAll.createAndCondition(counter, counter, counter);
         and.beforeFileTreeWalk();
@@ -59,14 +87,22 @@ public class IfAllTest {
     }
 
     @Test
+<<<<<<< HEAD
+    void testCreateAndConditionCalledProgrammaticallyThrowsNPEWhenComponentsNotSpecified() {
+=======
     public void testCreateAndConditionCalledProgrammaticallyThrowsNPEWhenComponentsNotSpecified() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         PathCondition[] components = null;
         assertThrows(NullPointerException.class, () -> IfAll.createAndCondition(components));
     }
 
     @ParameterizedTest
     @ValueSource(strings = "No components provided for IfAll")
+<<<<<<< HEAD
+    void testCreateAndConditionCalledByPluginBuilderReturnsNullAndLogsMessageWhenComponentsNotSpecified(
+=======
     public void testCreateAndConditionCalledByPluginBuilderReturnsNullAndLogsMessageWhenComponentsNotSpecified(
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             final String expectedMessage) {
         final PluginEntry nullEntry = null;
         final PluginType<IfAll> type = new PluginType<>(nullEntry, IfAll.class, "Dummy");

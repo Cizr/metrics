@@ -25,7 +25,18 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.ThreadContext;
 import org.apache.logging.log4j.core.LogEvent;
+<<<<<<< HEAD
+import org.apache.logging.log4j.core.appender.db.jpa.converter.ContextMapAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.ContextStackAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.InstantAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.LevelAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.MarkerAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.MessageAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.StackTraceElementAttributeConverter;
+import org.apache.logging.log4j.core.appender.db.jpa.converter.ThrowableAttributeConverter;
+=======
 import org.apache.logging.log4j.core.appender.db.jpa.converter.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.core.impl.ThrowableProxy;
 import org.apache.logging.log4j.core.time.Instant;
 import org.apache.logging.log4j.message.Message;

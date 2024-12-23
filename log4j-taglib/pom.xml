@@ -88,12 +88,15 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <scope>test</scope>
+<<<<<<< HEAD
+=======
       <exclusions>
         <exclusion>
           <groupId>org.springframework</groupId>
           <artifactId>spring-jcl</artifactId>
         </exclusion>
       </exclusions>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     </dependency>
   </dependencies>
 </project>

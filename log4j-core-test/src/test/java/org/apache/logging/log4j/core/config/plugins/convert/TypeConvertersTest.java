@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.core.config.plugins.convert;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -220,6 +224,9 @@ public class TypeConvertersTest {
     public void testConvert() throws Exception {
         final Object actual = TypeConverters.convert(value, clazz, defaultValue);
         final String assertionMessage = "\nGiven: " + value + "\nDefault: " + defaultValue;
+<<<<<<< HEAD
+        assertThat(actual).as(assertionMessage).isEqualTo(expected);
+=======
         if (expected instanceof char[]) {
             assertArrayEquals(assertionMessage, (char[]) expected, (char[]) actual);
         } else if (expected instanceof byte[]) {
@@ -227,5 +234,6 @@ public class TypeConvertersTest {
         } else {
             assertEquals(assertionMessage, expected, actual);
         }
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

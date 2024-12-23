@@ -17,7 +17,13 @@
 package org.apache.logging.log4j.core.appender;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+<<<<<<< HEAD
+import static org.hamcrest.Matchers.both;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasSize;
+=======
 import static org.hamcrest.Matchers.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -116,7 +122,12 @@ public class MemoryMappedFileAppenderTest {
                 both(hasSize(2))
                         .and(
                                 contains(
+<<<<<<< HEAD
+                                        "org.apache.logging.log4j.core.appender.MemoryMappedFileAppenderTest.testMemMapLocation(MemoryMappedFileAppenderTest.java:105): Test log1",
+                                        "org.apache.logging.log4j.core.appender.MemoryMappedFileAppenderTest.testMemMapLocation(MemoryMappedFileAppenderTest.java:108): Test log2")));
+=======
                                         "org.apache.logging.log4j.core.appender.MemoryMappedFileAppenderTest.testMemMapLocation(MemoryMappedFileAppenderTest.java:103): Test log1",
                                         "org.apache.logging.log4j.core.appender.MemoryMappedFileAppenderTest.testMemMapLocation(MemoryMappedFileAppenderTest.java:106): Test log2")));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

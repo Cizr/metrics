@@ -29,7 +29,10 @@ import org.apache.logging.log4j.core.ContextDataInjector;
 import org.apache.logging.log4j.core.config.Property;
 import org.apache.logging.log4j.core.impl.ContextDataInjectorFactory;
 import org.apache.logging.log4j.perf.nogc.OpenHashStringMap;
+<<<<<<< HEAD
+=======
 import org.apache.logging.log4j.spi.CopyOnWriteOpenHashMapThreadContextMap;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.spi.DefaultThreadContextMap;
 import org.apache.logging.log4j.spi.GarbageFreeOpenHashMapThreadContextMap;
 import org.apache.logging.log4j.spi.ThreadContextMap;
@@ -71,26 +74,36 @@ import org.openjdk.jmh.annotations.Warmup;
 @State(Scope.Benchmark)
 public class ThreadContextBenchmark {
     private static final String DEFAULT_CONTEXT_MAP = "Default";
+<<<<<<< HEAD
+=======
     private static final String COPY_OPENHASH_MAP = "CopyOpenHash";
     private static final String COPY_ARRAY_MAP = "CopySortedArray";
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     private static final String NO_GC_OPENHASH_MAP = "NoGcOpenHash";
     private static final String NO_GC_ARRAY_MAP = "NoGcSortedArray";
     private static final Map<String, Class<? extends ThreadContextMap>> IMPLEMENTATIONS = new HashMap<>();
 
     static {
         IMPLEMENTATIONS.put(DEFAULT_CONTEXT_MAP, DefaultThreadContextMap.class);
+<<<<<<< HEAD
+=======
         IMPLEMENTATIONS.put(COPY_OPENHASH_MAP, CopyOnWriteOpenHashMapThreadContextMap.class);
         IMPLEMENTATIONS.put(
                 COPY_ARRAY_MAP,
                 CopyOnWriteOpenHashMapThreadContextMap.SUPER); // CopyOnWriteSortedArrayThreadContextMap.class);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         IMPLEMENTATIONS.put(NO_GC_OPENHASH_MAP, GarbageFreeOpenHashMapThreadContextMap.class);
         IMPLEMENTATIONS.put(
                 NO_GC_ARRAY_MAP,
                 GarbageFreeOpenHashMapThreadContextMap.SUPER); // GarbageFreeSortedArrayThreadContextMap.class);
     }
 
+<<<<<<< HEAD
+    @Param({"Default", "NoGcOpenHash", "NoGcSortedArray"})
+=======
     @Param({"Default", "CopyOpenHash", "CopySortedArray", "NoGcOpenHash", "NoGcSortedArray"})
     // @Param({ "Default", }) // for legecyInject benchmarks
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public String threadContextMapAlias;
 
     @Param({"5", "50", "500"})

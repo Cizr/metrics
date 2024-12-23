@@ -15,6 +15,15 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<<<<<<< HEAD
+<Configuration packages="customplugin">
+  <Appenders>
+    <Console name="CONSOLE"/>
+  </Appenders>
+  <Loggers>
+    <Root level="INFO">
+      <AppenderRef ref="CONSOLE" />
+=======
 <Configuration status="off" packages="customplugin">
   <Appenders>
     <List name="List">
@@ -24,6 +33,7 @@
   <Loggers>
     <Root level="trace">
       <AppenderRef ref="List" />
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     </Root>
   </Loggers>
 </Configuration>

@@ -27,11 +27,22 @@
   </parent>
 
   <artifactId>log4j-layout-template-json-test</artifactId>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <name>Apache Log4j JSON Template Layout tests</name>
 
   <properties>
 
+<<<<<<< HEAD
+    <log4j.docgen.skip>true</log4j.docgen.skip>
+    <bnd.baseline.skip>true</bnd.baseline.skip>
     <maven.deploy.skip>true</maven.deploy.skip>
+    <sign.skip>true</sign.skip>
+=======
+    <maven.deploy.skip>true</maven.deploy.skip>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!--
       ~ OSGi and JPMS options
@@ -39,6 +50,17 @@
     <bnd-module-name>org.apache.logging.log4j.layout.template.json.test</bnd-module-name>
     <Fragment-Host>org.apache.logging.log4j.core</Fragment-Host>
 
+<<<<<<< HEAD
+    <!-- `elastic.version` is used for two purposes:
+
+         1. `co.elastic.clients:elasticsearch-java` version
+         2. The Docker image version of the ELK-stack
+
+         As of 2024-09-16, these all (Maven artifacts and Elastic products) get released with the same version. -->
+    <elastic.version>8.15.1</elastic.version>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   </properties>
 
   <dependencies>
@@ -81,6 +103,10 @@
     <dependency>
       <groupId>co.elastic.clients</groupId>
       <artifactId>elasticsearch-java</artifactId>
+<<<<<<< HEAD
+      <version>${elastic.version}</version>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <scope>test</scope>
     </dependency>
 
@@ -125,6 +151,8 @@
   <build>
     <plugins>
 
+<<<<<<< HEAD
+=======
       <!-- Modules that contain `log4j-core` plugins, must be compiled with: `org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor` -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -157,6 +185,7 @@
         </executions>
       </plugin>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -181,6 +210,31 @@
 
       <id>docker</id>
 
+<<<<<<< HEAD
+      <!--
+        ~ Only the `ubuntu` CI runners have access to Docker
+        -->
+      <activation>
+        <os>
+          <family>linux</family>
+        </os>
+        <property>
+          <name>env.CI</name>
+          <value>true</value>
+        </property>
+      </activation>
+
+      <properties>
+
+        <!-- Suppress `docker-maven-plugin` output -->
+        <docker.showLogs>false</docker.showLogs>
+        <docker.verbose>false</docker.verbose>
+
+        <!-- `docker run elasticsearch:<TAG>` exists with code 137 due to insufficient memory.
+             We limit the used JVM memory to avoid this OOM failure. -->
+        <elastic.javaOpts>-Xms750m -Xmx750m</elastic.javaOpts>
+
+=======
       <activation>
         <activeByDefault>false</activeByDefault>
       </activation>
@@ -190,6 +244,7 @@
         <!-- `docker run elasticsearch:<TAG>` exists with code 137 due to insufficient memory.
              We limit the used JVM memory to avoid this OOM failure. -->
         <elastic.java-opts>-Xms750m -Xmx750m</elastic.java-opts>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       </properties>
 
       <build>
@@ -199,7 +254,10 @@
             <groupId>io.fabric8</groupId>
             <artifactId>docker-maven-plugin</artifactId>
             <configuration>
+<<<<<<< HEAD
+=======
               <verbose>all</verbose>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
               <startParallel>true</startParallel>
               <autoCreateCustomNetworks>true</autoCreateCustomNetworks>
               <images>
@@ -210,10 +268,18 @@
                     <env>
                       <discovery.type>single-node</discovery.type>
                       <xpack.security.enabled>false</xpack.security.enabled>
+<<<<<<< HEAD
+                      <ES_JAVA_OPTS>${elastic.javaOpts}</ES_JAVA_OPTS>
+                    </env>
+                    <ports>
+                      <!-- Binds an ephemeral port to the `elasticsearch.port` Maven property. -->
+                      <port>localhost:elasticsearch.port:9200</port>
+=======
                       <ES_JAVA_OPTS>${elastic.java-opts}</ES_JAVA_OPTS>
                     </env>
                     <ports>
                       <port>9200:9200</port>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                     </ports>
                     <network>
                       <mode>custom</mode>
@@ -225,7 +291,15 @@
                       <color>cyan</color>
                     </log>
                     <wait>
+<<<<<<< HEAD
+                      <tcp>
+                        <ports>
+                          <port>9200</port>
+                        </ports>
+                      </tcp>
+=======
                       <log>recovered \[0\] indices into cluster_state</log>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                       <time>60000</time>
                     </wait>
                   </run>
@@ -243,11 +317,21 @@
                       <alias>logstash</alias>
                     </network>
                     <env>
+<<<<<<< HEAD
+                      <LS_JAVA_OPTS>${elastic.javaOpts}</LS_JAVA_OPTS>
+                    </env>
+                    <ports>
+                      <!-- Binds an ephemeral port to the `logstash.gelf.port` Maven property. -->
+                      <port>localhost:logstash.gelf.port:12222</port>
+                      <!-- Binds an ephemeral port to the `logstash.tcp.port` Maven property. -->
+                      <port>localhost:logstash.tcp.port:12345</port>
+=======
                       <LS_JAVA_OPTS>${elastic.java-opts}</LS_JAVA_OPTS>
                     </env>
                     <ports>
                       <port>12222:12222</port>
                       <port>12345:12345</port>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                     </ports>
                     <log>
                       <prefix>[LS]</prefix>
@@ -259,6 +343,28 @@
                         <arg>--pipeline.batch.size</arg>
                         <arg>1</arg>
                         <arg>-e</arg>
+<<<<<<< HEAD
+                        <arg><![CDATA[
+
+                          input {
+
+                            # Documentation: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-gelf.html
+                            gelf {
+                              host => "logstash"
+                              use_tcp => true
+                              use_udp => false
+                              port => 12222
+                              type => "gelf"
+                            }
+
+                            # Documentation: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-tcp.html
+                            tcp {
+                              port => 12345
+                              codec => json
+                              type => "tcp"
+                            }
+
+=======
                         <arg>input {
                             gelf {
                               host =&gt; "logstash"
@@ -272,11 +378,28 @@
                               codec =&gt; json
                               type =&gt; "tcp"
                             }
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                           }
 
                           filter {
                             if [type] == "gelf" {
                               # These are GELF/Syslog logging levels as defined in RFC 3164.
+<<<<<<< HEAD
+                              # Map the integer level to its human-readable format.
+                              # Documentation: https://www.elastic.co/guide/en/logstash/current/plugins-filters-translate.html
+                              translate {
+                                source => "[level]"
+                                target => "[levelName]"
+                                dictionary => {
+                                  "0" => "EMERG"
+                                  "1" => "ALERT"
+                                  "2" => "CRITICAL"
+                                  "3" => "ERROR"
+                                  "4" => "WARN"
+                                  "5" => "NOTICE"
+                                  "6" => "INFO"
+                                  "7" => "DEBUG"
+=======
                               # Map the integer level to its human readable format.
                               translate {
                                 field =&gt; "[level]"
@@ -290,11 +413,35 @@
                                   "5" =&gt; "NOTICE"
                                   "6" =&gt; "INFO"
                                   "7" =&gt; "DEBUG"
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                                 }
                               }
                             }
                           }
 
+<<<<<<< HEAD
+                          # Documentation: https://www.elastic.co/guide/en/logstash/current/plugins-filters-elasticsearch.html
+                          output {
+                            # (Un)comment for debugging purposes
+                            # stdout { codec => rubydebug }
+                            elasticsearch {
+                              hosts => ["http://elasticsearch:9200"]
+                              index => "log4j"
+                            }
+                          }
+
+                        ]]></arg>
+                      </exec>
+                    </entrypoint>
+                    <wait>
+                      <tcp>
+                        <host>localhost</host>
+                        <ports>
+                          <port>12222</port>
+                          <port>12345</port>
+                        </ports>
+                      </tcp>
+=======
                           output {
                             # (Un)comment for debugging purposes
                             # stdout { codec =&gt; rubydebug }
@@ -307,6 +454,7 @@
                     </entrypoint>
                     <wait>
                       <log>Successfully started Logstash API endpoint</log>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                       <time>60000</time>
                     </wait>
                   </run>
@@ -338,6 +486,14 @@
               <includes>
                 <include>**/*IT.java</include>
               </includes>
+<<<<<<< HEAD
+              <systemPropertyVariables>
+                <log4j.elasticsearch.port>${elasticsearch.port}</log4j.elasticsearch.port>
+                <log4j.logstash.gelf.port>${logstash.gelf.port}</log4j.logstash.gelf.port>
+                <log4j.logstash.tcp.port>${logstash.tcp.port}</log4j.logstash.tcp.port>
+              </systemPropertyVariables>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             </configuration>
             <executions>
               <execution>

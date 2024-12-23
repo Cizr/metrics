@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.perf.jmh;
 
+<<<<<<< HEAD
+import static org.apache.logging.log4j.util.Unbox.box;
+=======
 import static org.apache.logging.log4j.util.Unbox.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;

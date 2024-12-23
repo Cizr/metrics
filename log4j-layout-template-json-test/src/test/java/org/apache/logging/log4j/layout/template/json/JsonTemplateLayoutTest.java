@@ -16,14 +16,30 @@
  */
 package org.apache.logging.log4j.layout.template.json;
 
+<<<<<<< HEAD
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.CONFIGURATION;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.usingSerializedLogEventAccessor;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.writeJson;
+=======
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+<<<<<<< HEAD
+import java.io.ByteArrayOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+=======
 import java.io.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.math.BigDecimal;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -32,7 +48,15 @@ import java.nio.charset.Charset;
 import java.time.Instant;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
+<<<<<<< HEAD
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+=======
 import java.util.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -55,9 +79,26 @@ import org.apache.logging.log4j.core.net.Severity;
 import org.apache.logging.log4j.core.test.AvailablePortFinder;
 import org.apache.logging.log4j.core.time.MutableInstant;
 import org.apache.logging.log4j.layout.template.json.JsonTemplateLayout.EventTemplateAdditionalField;
+<<<<<<< HEAD
+import org.apache.logging.log4j.layout.template.json.resolver.EventResolver;
+import org.apache.logging.log4j.layout.template.json.resolver.EventResolverContext;
+import org.apache.logging.log4j.layout.template.json.resolver.EventResolverFactory;
+import org.apache.logging.log4j.layout.template.json.resolver.TemplateResolver;
+import org.apache.logging.log4j.layout.template.json.resolver.TemplateResolverConfig;
+import org.apache.logging.log4j.layout.template.json.resolver.TemplateResolverFactory;
+import org.apache.logging.log4j.layout.template.json.util.JsonWriter;
+import org.apache.logging.log4j.message.Message;
+import org.apache.logging.log4j.message.MessageFactory;
+import org.apache.logging.log4j.message.ObjectMessage;
+import org.apache.logging.log4j.message.ParameterizedMessageFactory;
+import org.apache.logging.log4j.message.ReusableMessageFactory;
+import org.apache.logging.log4j.message.SimpleMessage;
+import org.apache.logging.log4j.message.StringMapMessage;
+=======
 import org.apache.logging.log4j.layout.template.json.resolver.*;
 import org.apache.logging.log4j.layout.template.json.util.JsonWriter;
 import org.apache.logging.log4j.message.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.Test;
 

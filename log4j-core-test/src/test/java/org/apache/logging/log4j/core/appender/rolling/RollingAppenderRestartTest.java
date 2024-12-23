@@ -16,13 +16,23 @@
  */
 package org.apache.logging.log4j.core.appender.rolling;
 
+<<<<<<< HEAD
+import static junit.framework.Assert.fail;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.apache.logging.log4j.core.test.hamcrest.Descriptors.that;
 import static org.apache.logging.log4j.core.test.hamcrest.FileMatchers.hasName;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.hasItemInArray;
+<<<<<<< HEAD
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
+=======
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +78,23 @@ public class RollingAppenderRestartTest {
         Files.createDirectories(DIR);
         Files.write(FILE, "Hello, world".getBytes(), StandardOpenOption.CREATE);
         final FileTime newTime = FileTime.from(Instant.now().minus(2, ChronoUnit.DAYS));
+<<<<<<< HEAD
+        final BasicFileAttributeView attrs = Files.getFileAttributeView(FILE, BasicFileAttributeView.class);
+        attrs.setTimes(newTime, newTime, newTime);
+        /*
+         * POSIX does not define a file creation timestamp.
+         * Depending on the system `creationTime` might be:
+         *  * 0,
+         *  * the last modification time
+         *  * or the time the file was actually created.
+         *
+         * This test fails if the latter occurs, since the file is created after the JVM.
+         */
+        final FileTime creationTime = attrs.readAttributes().creationTime();
+        assumeTrue(creationTime.equals(newTime) || creationTime.toMillis() == 0L);
+=======
         Files.getFileAttributeView(FILE, BasicFileAttributeView.class).setTimes(newTime, newTime, newTime);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @AfterClass
@@ -87,7 +113,11 @@ public class RollingAppenderRestartTest {
         Thread.yield();
         final String name = "RollingFile";
         final RollingFileAppender appender = loggerContextRule.getAppender(name);
+<<<<<<< HEAD
+        assertNotNull(name, appender);
+=======
         assertNotNull(appender, name);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         if (appender.getManager().getSemaphore().tryAcquire(5, TimeUnit.SECONDS)) {
             // If we are in here, either the rollover is done or has not taken place yet.
             validate();
@@ -101,7 +131,12 @@ public class RollingAppenderRestartTest {
         final File[] files = DIR.toFile().listFiles();
         Arrays.sort(files);
         assertTrue(
+<<<<<<< HEAD
+                "was expecting files with '.gz' suffix, found: " + Arrays.toString(files),
+                hasGzippedFile.matches(files));
+=======
                 hasGzippedFile.matches(files),
                 () -> "was expecting files with '.gz' suffix, found: " + Arrays.toString(files));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

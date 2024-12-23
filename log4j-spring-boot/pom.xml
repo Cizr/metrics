@@ -16,19 +16,35 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>${revision}</version>
     <relativePath>../log4j-parent</relativePath>
   </parent>
+<<<<<<< HEAD
+
+  <artifactId>log4j-spring-boot</artifactId>
+
+  <name>Apache Log4j Spring Boot Support</name>
+  <description>Apache Log4j Spring Boot Support</description>
+
+  <properties>
+=======
   <artifactId>log4j-spring-boot</artifactId>
   <packaging>jar</packaging>
   <name>Apache Log4j Spring Boot Support</name>
   <description>Apache Log4j Spring Boot Support</description>
   <properties>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <!--
       ~ OSGi and JPMS options
       -->
@@ -37,18 +53,38 @@
   </properties>
 
   <dependencies>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+    </dependency>
+
+=======
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
@@ -63,6 +99,7 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
     </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api-test</artifactId>
@@ -74,6 +111,10 @@
         </exclusion>
       </exclusions>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core-test</artifactId>
@@ -85,41 +126,72 @@
         </exclusion>
       </exclusions>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-jcl</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+=======
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-slf4j-impl</artifactId>
       <scope>test</scope>
     </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+=======
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.junit-pioneer</groupId>
       <artifactId>junit-pioneer</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+  </dependencies>
+
+=======
   </dependencies>
 
   <build>
@@ -144,4 +216,5 @@
       </plugin>
     </plugins>
   </build>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

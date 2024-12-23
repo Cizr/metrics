@@ -18,6 +18,11 @@ package org.apache.logging.log4j.layout.template.json.resolver;
 
 import java.util.Locale;
 import java.util.TimeZone;
+<<<<<<< HEAD
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.time.Instant;
 import org.apache.logging.log4j.core.time.MutableInstant;
@@ -257,6 +262,11 @@ public final class TimestampResolver implements EventResolver {
 
     private static final class PatternResolver implements EventResolver {
 
+<<<<<<< HEAD
+        private final Lock lock = new ReentrantLock();
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         private final PatternResolverContext patternResolverContext;
 
         private PatternResolver(final PatternResolverContext patternResolverContext) {
@@ -264,7 +274,20 @@ public final class TimestampResolver implements EventResolver {
         }
 
         @Override
+<<<<<<< HEAD
+        public void resolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+            lock.lock();
+            try {
+                unsynchronizedResolve(logEvent, jsonWriter);
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        private void unsynchronizedResolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+=======
         public synchronized void resolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
             // Format timestamp if it doesn't match the last cached one.
             final boolean instantMatching = patternResolverContext.formatter.isInstantMatching(
@@ -337,10 +360,28 @@ public final class TimestampResolver implements EventResolver {
 
     private abstract static class EpochResolver implements EventResolver {
 
+<<<<<<< HEAD
+        private final Lock lock = new ReentrantLock();
+
+        private final EpochResolutionRecord resolutionRecord = new EpochResolutionRecord();
+
+        @Override
+        public void resolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+            lock.lock();
+            try {
+                unsynchronizedResolve(logEvent, jsonWriter);
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        private void unsynchronizedResolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+=======
         private final EpochResolutionRecord resolutionRecord = new EpochResolutionRecord();
 
         @Override
         public synchronized void resolve(final LogEvent logEvent, final JsonWriter jsonWriter) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             final Instant logEventInstant = logEvent.getInstant();
             if (logEventInstant.equals(resolutionRecord.instant)) {
                 jsonWriter.writeRawString(resolutionRecord.resolution, 0, resolutionRecord.resolutionLength);

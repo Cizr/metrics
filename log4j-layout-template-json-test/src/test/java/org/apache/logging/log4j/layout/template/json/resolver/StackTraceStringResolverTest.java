@@ -16,6 +16,10 @@
  */
 package org.apache.logging.log4j.layout.template.json.resolver;
 
+<<<<<<< HEAD
+import static java.util.Collections.singletonList;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.CONFIGURATION;
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.JAVA_BASE_PREFIX;
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
@@ -40,6 +44,10 @@ import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 import org.apache.logging.log4j.layout.template.json.JsonTemplateLayout;
 import org.apache.logging.log4j.layout.template.json.JsonTemplateLayoutDefaults;
+<<<<<<< HEAD
+import org.apache.logging.log4j.layout.template.json.util.TruncatingBufferedPrintWriter;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.util.Constants;
 import org.assertj.core.api.AbstractStringAssert;
 import org.junit.jupiter.api.Nested;
@@ -593,6 +601,70 @@ class StackTraceStringResolverTest {
         private String matchingRegex(final String string) {
             return "[" + string.charAt(0) + "]" + Pattern.quote(string.substring(1));
         }
+<<<<<<< HEAD
+
+        @Test
+        void should_not_fail_on_truncated_output_not_ending_with_newline() {
+
+            // Try to find an exception whose truncated stack trace does not end with a newline
+            final int maxStringLength = 100;
+            final float maxByteCountPerChar =
+                    JsonTemplateLayoutDefaults.getCharset().newEncoder().maxBytesPerChar();
+            final int maxStringByteCount =
+                    Math.toIntExact(Math.round(Math.ceil(maxByteCountPerChar * maxStringLength)));
+            final TruncatingBufferedPrintWriter writer = TruncatingBufferedPrintWriter.ofCapacity(maxStringByteCount);
+            Exception exception;
+            String message = "m";
+            do {
+                exception = new Exception(message);
+                exception.printStackTrace(writer);
+                if (writer.truncated() && writer.buffer()[writer.length() - 1] != '\n') {
+                    break;
+                }
+                writer.close();
+                message += "m";
+            } while (true);
+
+            // Create the event template
+            final String eventTemplate = writeJson(asMap(
+                    "ex",
+                    asMap(
+                            "$resolver",
+                            "exception",
+                            "field",
+                            "stackTrace",
+                            "stackTrace",
+                            asMap(
+                                    "stringified",
+                                    asMap(
+                                            "truncation",
+                                            asMap(
+                                                    "suffix",
+                                                    TRUNCATION_SUFFIX,
+                                                    "pointMatcherStrings",
+                                                    singletonList("this string shouldn't match with anything")))))));
+
+            // Create the layout
+            final JsonTemplateLayout layout = JsonTemplateLayout.newBuilder()
+                    .setConfiguration(CONFIGURATION)
+                    .setEventTemplate(eventTemplate)
+                    .setMaxStringLength(maxStringLength)
+                    .setStackTraceEnabled(true)
+                    .build();
+
+            // Create the log event
+            final LogEvent logEvent =
+                    Log4jLogEvent.newBuilder().setThrown(exception).build();
+
+            // Check the serialized event
+            usingSerializedLogEventAccessor(layout, logEvent, accessor -> {
+                final int expectedStackTraceLength = maxStringLength + TRUNCATION_SUFFIX.length();
+                final String stackTrace = accessor.getString("ex");
+                assertThat(stackTrace).hasSizeLessThan(expectedStackTraceLength);
+            });
+        }
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test
@@ -629,6 +701,10 @@ class StackTraceStringResolverTest {
 
         private static final String NON_ASCII_UTF8_TEXT = "அஆஇฬ๘";
 
+<<<<<<< HEAD
+        @SuppressWarnings("StaticAssignmentOfThrowable")
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         private static final NonAsciiUtf8MethodNameContainingException INSTANCE = createInstance();
 
         @SuppressWarnings("UnicodeInCode")

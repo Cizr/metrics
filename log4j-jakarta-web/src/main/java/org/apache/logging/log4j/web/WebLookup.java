@@ -30,7 +30,11 @@ public class WebLookup extends AbstractLookup {
     private static final String INIT_PARAM_PREFIX = "initParam.";
 
     @Override
+<<<<<<< HEAD
+    public String lookup(final LogEvent ignored, final String key) {
+=======
     public String lookup(final LogEvent event, final String key) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final ServletContext ctx = WebLoggerContextUtils.getServletContext();
         if (ctx == null) {
             return null;

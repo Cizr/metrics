@@ -16,11 +16,22 @@
  */
 package org.apache.logging.log4j.core.util;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assumptions.assumeThat;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
+<<<<<<< HEAD
+import java.net.InetAddress;
 import java.net.URI;
+import java.net.UnknownHostException;
+=======
+import java.net.URI;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
@@ -70,4 +81,14 @@ public class NetUtilsTest {
         assertNotNull(uri, "The URI should not be null.");
         assertEquals("file:/D:/path/to/something/on/windows", uri.toString(), "The URI is not correct.");
     }
+<<<<<<< HEAD
+
+    @Test
+    public void testCanonicalHostName() throws UnknownHostException {
+        assumeThat(InetAddress.getLocalHost().getCanonicalHostName()).contains(".");
+        // If this fails the host might be misconfigured
+        assertThat(NetUtils.getCanonicalLocalHostname()).contains(".");
+    }
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 }

@@ -27,6 +27,10 @@
   </parent>
 
   <artifactId>log4j-layout-template-json</artifactId>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <name>Apache Log4j JSON Template Layout</name>
   <description>Apache Log4j Layout for producing JSON output that is structured according to a user-provided template.</description>
 
@@ -40,10 +44,17 @@
       ~ OSGi and JPMS options
       -->
     <bnd-module-name>org.apache.logging.log4j.layout.template.json</bnd-module-name>
+<<<<<<< HEAD
+    <bnd-extra-package-options>
+      <!-- JCTools is optional (#1895) -->
+      org.jctools.*;resolution:=optional,
+    </bnd-extra-package-options>
+=======
     <bnd-extra-module-options>
       <!-- JCTools is optional (#1895) -->
       org.jctools.core;substitute="jctools-core";static=true
     </bnd-extra-module-options>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <Fragment-Host>org.apache.logging.log4j.core</Fragment-Host>
 
   </properties>
@@ -63,6 +74,8 @@
 
   </dependencies>
 
+<<<<<<< HEAD
+=======
   <build>
     <plugins>
 
@@ -84,4 +97,5 @@
     </plugins>
   </build>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

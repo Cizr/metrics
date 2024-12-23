@@ -62,6 +62,9 @@ Apache Log4j 2.16.0 requires a minimum of Java 8 to build and run.
 Log4j 2.12.1 is the last release to support Java 7.
 Java 7 is no longer supported by the Log4j team.
 
+<<<<<<< HEAD
+=======
 For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see http://logging.apache.org/log4j/2.x/[the Apache Log4j 2 website].
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 <#include "../.changelog.adoc.ftl">

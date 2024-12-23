@@ -17,7 +17,17 @@
 package org.apache.logging.log4j.core;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -127,7 +137,11 @@ public class LoggerTest {
         final List<LogEvent> events = app.getEvents();
         assertEventCount(events, 3);
         assertEquals(
+<<<<<<< HEAD
+                "org.apache.logging.log4j.core.LoggerTest.builder(LoggerTest.java:129)",
+=======
                 "org.apache.logging.log4j.core.LoggerTest.builder(LoggerTest.java:123)",
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                 events.get(0).getSource().toString(),
                 "Incorrect location");
         assertEquals(Level.DEBUG, events.get(0).getLevel(), "Incorrect Level");

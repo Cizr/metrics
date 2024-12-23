@@ -16,7 +16,15 @@
  */
 package org.apache.logging.log4j.core.appender.rolling.action;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.List;
 import org.apache.logging.log4j.core.config.Node;
@@ -29,11 +37,20 @@ import org.apache.logging.log4j.status.StatusLogger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.SetSystemProperty;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Tests the Not composite condition.
  */
+<<<<<<< HEAD
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+class IfNotTest {
+=======
 public class IfNotTest {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     @Test
     public void test() {

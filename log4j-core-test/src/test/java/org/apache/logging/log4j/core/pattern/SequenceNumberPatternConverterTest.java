@@ -27,7 +27,11 @@ import org.apache.logging.log4j.core.test.junit.LoggerContextSource;
 import org.apache.logging.log4j.core.test.junit.Named;
 import org.junit.jupiter.api.Test;
 
+<<<<<<< HEAD
+@LoggerContextSource("SequenceNumberPatternConverterTest.yaml")
+=======
 @LoggerContextSource("SequenceNumberPatternConverterTest.yml")
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 public class SequenceNumberPatternConverterTest {
 
     @Test

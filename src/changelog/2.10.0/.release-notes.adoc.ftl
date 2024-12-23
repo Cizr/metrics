@@ -56,7 +56,13 @@ Those errors should be reported to the tool vendor.
 During testing of the release it was found that one unit test fails when run on Windows.
 When building from source either use `mvn clean install -DskipTests` on Windows or run the build on a different operating system.
 The unit test failure is a problem in the test, not in Log4j.
+<<<<<<< HEAD
+As always, pre-built distributions can be downloaded from
+https://downloads.apache.org/logging/log4j/[]
+or the binaries JARs may be obtained from the Maven central repository.
+=======
 As always, pre-built distributions can be downloaded from http://www.apache.org/dist/logging/log4j/[] or the binaries JARs may be obtained from the Maven central repository.
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 Note that subsequent to the 2.9.0 release, for security reasons, `SerializedLayout` is deprecated and no longer used as default in the Socket and JMS appenders.
 `SerializedLayout` can still be used as before, but has to be specified explicitly.
@@ -103,6 +109,9 @@ Basic compatibility with Log4j 1.x is provided through the `log4j-1.2-api` compo
 not implement some of the very implementation specific classes and methods.
 The package names and Maven `groupId` have been changed to `org.apache.logging.log4j` to avoid any conflicts with Log4j 1.x.
 
+<<<<<<< HEAD
+=======
 For complete information on Apache Log4j 2, including instructions on how to submit bug reports, patches, or suggestions for improvement, see http://logging.apache.org/log4j/2.x/[the Apache Log4j 2 website].
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 <#include "../.changelog.adoc.ftl">

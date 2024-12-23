@@ -36,6 +36,12 @@
       <!-- Log4j Core is optional -->
       org.apache.logging.log4j.core.*;resolution:=optional
     </bnd-extra-package-options>
+<<<<<<< HEAD
+
+    <!-- PTS requires using the JUnit Platform, which interferes with JUL initialization -->
+    <predictive.test.selection.enabled>false</predictive.test.selection.enabled>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   </properties>
 
   <dependencies>

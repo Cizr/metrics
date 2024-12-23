@@ -16,7 +16,13 @@
  */
 package org.apache.logging.log4j.core.appender;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,10 +34,40 @@ import org.apache.logging.log4j.core.test.junit.LoggerContextSource;
 import org.apache.logging.log4j.status.StatusData;
 import org.apache.logging.log4j.status.StatusLogger;
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.SetSystemProperty;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * OutputStreamManager Tests.
  */
+<<<<<<< HEAD
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+class OutputStreamManagerTest {
+
+    @Test
+    @LoggerContextSource("multipleIncompatibleAppendersTest.xml")
+    void narrow(final LoggerContext context) {
+        final Logger logger = context.getLogger(OutputStreamManagerTest.class);
+        logger.info("test");
+        StatusLogger statusLogger = StatusLogger.getLogger();
+        final List<StatusData> events = statusLogger.getStatusData();
+        assertThat(events).isNotEmpty();
+        StatusData event = events.get(0);
+        if (event.getMessage().getFormattedMessage().contains("WindowsAnsiOutputStream")) {
+            event = events.get(1);
+        }
+        assertThat(event.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(event.getMessage().getFormattedMessage())
+                .isEqualTo(
+                        "Could not create plugin of type class org.apache.logging.log4j.core.appender.RollingRandomAccessFileAppender for element RollingRandomAccessFile");
+        assertThat(event.getThrowable())
+                .isNotNull()
+                .asString()
+                .isEqualTo(
+                        "org.apache.logging.log4j.core.config.ConfigurationException: Configuration has multiple incompatible Appenders pointing to the same resource 'target/multiIncompatibleAppender.log'");
+=======
 public class OutputStreamManagerTest {
 
     @Test
@@ -51,6 +87,7 @@ public class OutputStreamManagerTest {
         assertEquals(
                 "org.apache.logging.log4j.core.config.ConfigurationException: Configuration has multiple incompatible Appenders pointing to the same resource 'target/multiIncompatibleAppender.log'",
                 data.getThrowable().toString());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test

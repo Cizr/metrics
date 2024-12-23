@@ -18,6 +18,10 @@ package org.apache.logging.log4j.tojul;
 
 import java.util.logging.Logger;
 import org.apache.logging.log4j.message.MessageFactory;
+<<<<<<< HEAD
+import org.apache.logging.log4j.message.ParameterizedMessageFactory;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.spi.ExtendedLogger;
 import org.apache.logging.log4j.spi.LoggerContext;
 import org.apache.logging.log4j.spi.LoggerRegistry;
@@ -29,8 +33,16 @@ import org.apache.logging.log4j.spi.LoggerRegistry;
  * @author <a href="http://www.vorburger.ch">Michael Vorburger.ch</a> for Google
  */
 class JULLoggerContext implements LoggerContext {
+<<<<<<< HEAD
+
     private final LoggerRegistry<ExtendedLogger> loggerRegistry = new LoggerRegistry<>();
 
+    private static final MessageFactory DEFAULT_MESSAGE_FACTORY = ParameterizedMessageFactory.INSTANCE;
+
+=======
+    private final LoggerRegistry<ExtendedLogger> loggerRegistry = new LoggerRegistry<>();
+
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     // This implementation is strongly inspired by org.apache.logging.slf4j.SLF4JLoggerContext
 
     @Override
@@ -40,29 +52,60 @@ class JULLoggerContext implements LoggerContext {
 
     @Override
     public ExtendedLogger getLogger(final String name) {
+<<<<<<< HEAD
+        return getLogger(name, DEFAULT_MESSAGE_FACTORY);
+=======
         if (!loggerRegistry.hasLogger(name)) {
             loggerRegistry.putIfAbsent(name, null, new JULLogger(name, Logger.getLogger(name)));
         }
         return loggerRegistry.getLogger(name);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public ExtendedLogger getLogger(final String name, final MessageFactory messageFactory) {
+<<<<<<< HEAD
+        final MessageFactory effectiveMessageFactory =
+                messageFactory != null ? messageFactory : DEFAULT_MESSAGE_FACTORY;
+        final ExtendedLogger oldLogger = loggerRegistry.getLogger(name, effectiveMessageFactory);
+        if (oldLogger != null) {
+            return oldLogger;
+        }
+        final ExtendedLogger newLogger = createLogger(name, effectiveMessageFactory);
+        loggerRegistry.putIfAbsent(name, effectiveMessageFactory, newLogger);
+        return loggerRegistry.getLogger(name, effectiveMessageFactory);
+    }
+
+    private static ExtendedLogger createLogger(final String name, final MessageFactory messageFactory) {
+        final Logger logger = Logger.getLogger(name);
+        return new JULLogger(name, messageFactory, logger);
+=======
         if (!loggerRegistry.hasLogger(name, messageFactory)) {
             loggerRegistry.putIfAbsent(
                     name, messageFactory, new JULLogger(name, messageFactory, Logger.getLogger(name)));
         }
         return loggerRegistry.getLogger(name, messageFactory);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public boolean hasLogger(final String name) {
+<<<<<<< HEAD
+        return loggerRegistry.hasLogger(name, DEFAULT_MESSAGE_FACTORY);
+=======
         return loggerRegistry.hasLogger(name);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public boolean hasLogger(final String name, final MessageFactory messageFactory) {
+<<<<<<< HEAD
+        final MessageFactory effectiveMessageFactory =
+                messageFactory != null ? messageFactory : DEFAULT_MESSAGE_FACTORY;
+        return loggerRegistry.hasLogger(name, effectiveMessageFactory);
+=======
         return loggerRegistry.hasLogger(name, messageFactory);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override

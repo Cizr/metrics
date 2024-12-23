@@ -15,7 +15,11 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<<<<<<< HEAD
+<Configuration name="UnitTest" status="info">
+=======
 <Configuration name="UnitTest" status="info" packages="org.apache.logging.log4j.test">
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <Appenders>
     <List name="List">
       <PatternLayout pattern="%level %m%n" />

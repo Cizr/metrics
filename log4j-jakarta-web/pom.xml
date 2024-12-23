@@ -16,7 +16,13 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
@@ -25,11 +31,19 @@
   </parent>
 
   <artifactId>log4j-jakarta-web</artifactId>
+<<<<<<< HEAD
+
+=======
   <packaging>jar</packaging>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <name>Apache Log4j Jakarta Web</name>
   <description>The Apache Log4j support for Jakarta EE 9+ web servlet containers</description>
 
   <properties>
+<<<<<<< HEAD
+    <maven.javadoc.skip>false</maven.javadoc.skip>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!--
       ~ OSGi and JPMS options
@@ -77,6 +91,10 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+  </dependencies>
+
+=======
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
@@ -112,4 +130,5 @@
       </plugin>
     </plugins>
   </build>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

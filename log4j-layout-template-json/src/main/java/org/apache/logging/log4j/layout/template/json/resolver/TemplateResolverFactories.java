@@ -102,6 +102,10 @@ public final class TemplateResolverFactories {
         }
     }
 
+<<<<<<< HEAD
+    @SuppressWarnings("TypeParameterUnusedInFormals")
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     private static <V, C extends TemplateResolverContext<V, C>, F extends TemplateResolverFactory<V, C>> F castFactory(
             final Class<V> valueClass, final Class<C> contextClass, final TemplateResolverFactory<?, ?> factory) {
         final Class<?> factoryValueClass = factory.getValueClass();

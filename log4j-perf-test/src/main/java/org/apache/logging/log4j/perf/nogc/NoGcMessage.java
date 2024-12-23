@@ -88,11 +88,14 @@ public class NoGcMessage implements Message {
     }
 
     @Override
+<<<<<<< HEAD
+=======
     public String getFormat() {
         return null;
     }
 
     @Override
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public Object[] getParameters() {
         return getState().getParamsCopy();
     }

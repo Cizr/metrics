@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.core.config;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -25,10 +29,28 @@ import org.apache.logging.log4j.core.test.junit.LoggerContextSource;
 import org.apache.logging.log4j.status.StatusData;
 import org.apache.logging.log4j.status.StatusLogger;
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.SetSystemProperty;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Tests LoggersPlugin.
  */
+<<<<<<< HEAD
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+public class LoggersPluginTest {
+
+    @Test
+    @LoggerContextSource("multipleRootLoggersTest.xml")
+    public void testEmptyAttribute() {
+        final Logger logger = LogManager.getLogger();
+        logger.info("Test");
+        final StatusData data = StatusLogger.getLogger().getStatusData().get(0);
+
+        assertThat(data.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(data.getMessage().getFormattedMessage()).contains("multiple root loggers");
+=======
 @LoggerContextSource("multipleRootLoggersTest.xml")
 public class LoggersPluginTest {
 
@@ -41,5 +63,6 @@ public class LoggersPluginTest {
 
         assertEquals(Level.ERROR, data.getLevel());
         assertTrue(data.getMessage().getFormattedMessage().contains("multiple root loggers"));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

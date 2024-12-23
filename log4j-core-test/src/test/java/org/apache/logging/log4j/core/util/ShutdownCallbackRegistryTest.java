@@ -16,11 +16,19 @@
  */
 package org.apache.logging.log4j.core.util;
 
+<<<<<<< HEAD
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -39,14 +47,22 @@ public class ShutdownCallbackRegistryTest {
 
     @BeforeAll
     public static void setUpClass() {
+<<<<<<< HEAD
+        System.setProperty("log4j2.shutdownHookEnabled", "true");
+=======
         System.setProperty("log4j2.is.webapp", "false");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         System.setProperty(ShutdownCallbackRegistry.SHUTDOWN_CALLBACK_REGISTRY, Registry.class.getName());
     }
 
     @AfterAll
     public static void afterClass() {
         System.clearProperty(ShutdownCallbackRegistry.SHUTDOWN_CALLBACK_REGISTRY);
+<<<<<<< HEAD
+        System.clearProperty("log4j2.shutdownHookEnabled");
+=======
         System.clearProperty("log4j2.is.webapp");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test

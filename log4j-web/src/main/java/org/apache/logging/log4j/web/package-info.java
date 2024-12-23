@@ -19,7 +19,11 @@
  * The classes in this package are responsible for properly initializing and deinitializing Log4j in a Java EE web
  * application.
  *
+<<<<<<< HEAD
+ * @see <a href="https://logging.apache.org/log4j/2.x/jakarta.html#log4j-jakarta-web">Integrating Log4j with Web Applications</a>
+=======
  * @see <a href="http://logging.apache.org/log4j/2.x/manual/webapp.html">Using Log4j 2 in Web Applications</a>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
  */
 @Export
 @Version("2.20.1")

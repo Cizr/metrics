@@ -16,13 +16,44 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>${revision}</version>
     <relativePath>../log4j-parent</relativePath>
   </parent>
+<<<<<<< HEAD
+
+  <artifactId>log4j-slf4j-impl</artifactId>
+
+  <name>SLF4J 1 Binding for Log4j API</name>
+
+  <description>SLF4J 1 binding (provider) for the Log4j API.
+    It forwards SLF4J 1 calls to the Log4j API.
+    (Refer to the `log4j-to-slf4j` artifact for forwarding the Log4j API to SLF4J.)</description>
+
+  <properties>
+    <slf4j1.version>1.7.36</slf4j1.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j1.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+=======
   <artifactId>log4j-slf4j-impl</artifactId>
   <packaging>jar</packaging>
   <name>Apache Log4j SLF4J Binding</name>
@@ -46,6 +77,7 @@
       org.slf4j;substitute="slf4j-api"
     </bnd-extra-module-options>
   </properties>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <dependencies>
     <dependency>
       <groupId>org.osgi</groupId>
@@ -61,11 +93,14 @@
       <artifactId>slf4j-api</artifactId>
     </dependency>
     <dependency>
+<<<<<<< HEAD
+=======
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-ext</artifactId>
       <optional>true</optional>
     </dependency>
     <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <scope>runtime</scope>

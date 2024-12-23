@@ -16,7 +16,13 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
@@ -25,8 +31,15 @@
   </parent>
 
   <artifactId>log4j-couchdb</artifactId>
+<<<<<<< HEAD
+
   <name>Apache Log4j CouchDB</name>
   <description>CouchDB appender for Log4j.</description>
+
+=======
+  <name>Apache Log4j CouchDB</name>
+  <description>CouchDB appender for Log4j.</description>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <properties>
 
     <!--
@@ -81,6 +94,8 @@
     </dependency>
   </dependencies>
 
+<<<<<<< HEAD
+=======
   <build>
     <plugins>
       <plugin>
@@ -103,4 +118,5 @@
       </plugin>
     </plugins>
   </build>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

@@ -18,7 +18,15 @@ package org.apache.logging.log4j.perf.jmh;
 
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+<<<<<<< HEAD
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.TimeZone;
+=======
 import java.util.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.util.stream.IntStream;
 import org.apache.logging.log4j.core.time.MutableInstant;
 import org.apache.logging.log4j.core.util.datetime.FastDatePrinter;

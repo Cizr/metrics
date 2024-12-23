@@ -18,6 +18,10 @@ package org.apache.logging.log4j.core.appender.rolling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -68,6 +72,22 @@ public class OnStartupTriggeringPolicyTest {
         final FileTime fileTime = FileTime.fromMillis(timeStamp);
         final BasicFileAttributeView attrs = Files.getFileAttributeView(target, BasicFileAttributeView.class);
         attrs.setTimes(fileTime, fileTime, fileTime);
+<<<<<<< HEAD
+
+        /*
+         * POSIX does not define a file creation timestamp.
+         * Depending on the system `creationTime` might be:
+         *  * 0,
+         *  * the last modification time
+         *  * or the time the file was actually created.
+         *
+         * This test fails if the latter occurs, since the file is created after the JVM.
+         */
+        final FileTime creationTime = attrs.readAttributes().creationTime();
+        assumeTrue(creationTime.equals(fileTime) || creationTime.toMillis() == 0L);
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final PatternLayout layout = PatternLayout.newBuilder()
                 .withPattern("%msg")
                 .withConfiguration(configuration)

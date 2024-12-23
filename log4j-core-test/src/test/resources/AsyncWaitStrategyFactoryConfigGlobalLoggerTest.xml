@@ -16,7 +16,10 @@
   ~ limitations under the License.
   -->
 <Configuration name="asyncwait-global1" >
+<<<<<<< HEAD
+=======
   <!--  packages="org.apache.logging.log4j.core.async" -->
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
   <AsyncWaitStrategyFactory
       class="org.apache.logging.log4j.core.async.AsyncWaitStrategyFactoryConfigTest$YieldingWaitStrategyFactory" />

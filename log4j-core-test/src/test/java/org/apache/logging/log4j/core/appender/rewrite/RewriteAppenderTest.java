@@ -17,8 +17,19 @@
 package org.apache.logging.log4j.core.appender.rewrite;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+<<<<<<< HEAD
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+=======
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.List;
 import java.util.Map;

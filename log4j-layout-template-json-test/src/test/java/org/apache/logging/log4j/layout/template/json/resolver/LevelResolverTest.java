@@ -16,12 +16,22 @@
  */
 package org.apache.logging.log4j.layout.template.json.resolver;
 
+<<<<<<< HEAD
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.CONFIGURATION;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.usingSerializedLogEventAccessor;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.writeJson;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.apache.logging.log4j.Level;
+=======
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 import org.apache.logging.log4j.layout.template.json.JsonTemplateLayout;
@@ -46,7 +56,10 @@ class LevelResolverTest {
                 .build();
 
         // Create the log event.
+<<<<<<< HEAD
+=======
         final Marker marker = MarkerManager.getMarker("MARKER");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         Level level = Level.forName("CUSTOM_LEVEL", 250);
         final LogEvent logEvent = Log4jLogEvent.newBuilder().setLevel(level).build();
 

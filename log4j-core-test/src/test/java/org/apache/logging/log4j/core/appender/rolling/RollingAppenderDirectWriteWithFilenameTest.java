@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.core.appender.rolling;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertFalse;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.File;
 import org.apache.logging.log4j.Logger;

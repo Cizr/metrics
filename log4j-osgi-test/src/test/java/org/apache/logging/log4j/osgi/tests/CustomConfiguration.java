@@ -35,6 +35,13 @@ import org.apache.logging.log4j.core.config.LoggerConfig;
  * This Configuration is the same as the DefaultConfiguration but shows how a
  * custom configuration can be built programmatically
  */
+<<<<<<< HEAD
+final class CustomConfiguration extends AbstractConfiguration {
+
+    private final ListAppender appender = new ListAppender();
+
+    CustomConfiguration(final LoggerContext loggerContext) {
+=======
 public class CustomConfiguration extends AbstractConfiguration {
 
     /**
@@ -45,15 +52,22 @@ public class CustomConfiguration extends AbstractConfiguration {
     private final ListAppender appender = new ListAppender();
 
     public CustomConfiguration(final LoggerContext loggerContext) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         this(loggerContext, ConfigurationSource.NULL_SOURCE);
     }
 
     /**
      * Constructor to create the default configuration.
      */
+<<<<<<< HEAD
+    CustomConfiguration(final LoggerContext loggerContext, final ConfigurationSource source) {
+        super(loggerContext, source);
+        setName("Custom");
+=======
     public CustomConfiguration(final LoggerContext loggerContext, final ConfigurationSource source) {
         super(loggerContext, source);
         setName(CONFIG_NAME);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         appender.start();
         addAppender(appender);
         final LoggerConfig root = getRootLogger();
@@ -72,9 +86,15 @@ public class CustomConfiguration extends AbstractConfiguration {
         appender.getEvents().clear();
     }
 
+<<<<<<< HEAD
+    private static final class ListAppender extends AbstractLifeCycle implements Appender {
+
+        private final List<LogEvent> events = Collections.synchronizedList(new ArrayList<>());
+=======
     private static class ListAppender extends AbstractLifeCycle implements Appender {
 
         private final List<LogEvent> events = Collections.<LogEvent>synchronizedList(new ArrayList<>());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
         @Override
         public void append(final LogEvent event) {

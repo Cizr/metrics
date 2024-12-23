@@ -22,9 +22,12 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+<<<<<<< HEAD
+=======
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInput;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -46,7 +49,11 @@ import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 import org.apache.logging.log4j.core.test.categories.Appenders;
 import org.apache.logging.log4j.core.test.junit.LoggerContextRule;
 import org.apache.logging.log4j.message.SimpleMessage;
+<<<<<<< HEAD
+import org.apache.logging.log4j.test.junit.SerialUtil;
+=======
 import org.apache.logging.log4j.util.FilteredObjectInputStream;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -141,7 +148,13 @@ public class KafkaAppenderTest {
         assertNotNull(item);
         assertEquals(TOPIC_NAME, item.topic());
         assertNull(item.key());
+<<<<<<< HEAD
+        final byte[] data = item.value();
+        assertEquals(
+                LOG_MESSAGE, SerialUtil.<LogEvent>deserialize(data).getMessage().getFormattedMessage());
+=======
         assertEquals(LOG_MESSAGE, deserializeLogEvent(item.value()).getMessage().getFormattedMessage());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test
@@ -224,6 +237,8 @@ public class KafkaAppenderTest {
         assertEquals(LOG_MESSAGE, new String(item.value(), StandardCharsets.UTF_8));
     }
 
+<<<<<<< HEAD
+=======
     private LogEvent deserializeLogEvent(final byte[] data) throws IOException, ClassNotFoundException {
         final ByteArrayInputStream bis = new ByteArrayInputStream(data);
         try (final ObjectInput ois = new FilteredObjectInputStream(bis)) {
@@ -231,6 +246,7 @@ public class KafkaAppenderTest {
         }
     }
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     //    public void shouldRetryWhenTimeoutExceptionOccursOnSend() throws Exception {
     //        final AtomicInteger attempt = new AtomicInteger(0);
     //        final RecordCollectorImpl collector = new RecordCollectorImpl(

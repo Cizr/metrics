@@ -16,9 +16,20 @@
  */
 package org.apache.logging.log4j.core.appender.rolling.action;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.nio.file.attribute.FileTime;
+import java.time.Duration;
+=======
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.file.attribute.FileTime;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.util.List;
 import org.apache.logging.log4j.core.config.Node;
 import org.apache.logging.log4j.core.config.NullConfiguration;
@@ -31,10 +42,23 @@ import org.apache.logging.log4j.status.StatusLogger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+<<<<<<< HEAD
+import org.junitpioneer.jupiter.SetSystemProperty;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Tests the FileAgeFilter class.
  */
+<<<<<<< HEAD
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+class IfLastModifiedTest {
+
+    @Test
+    public void testAcceptsIfFileAgeEqualToDuration() {
+        final IfLastModified filter =
+                IfLastModified.newBuilder().setAge(Duration.parse("PT33S")).build();
+=======
 public class IfLastModifiedTest {
 
     @Test
@@ -46,6 +70,7 @@ public class IfLastModifiedTest {
     @Test
     public void testAcceptsIfFileAgeEqualToDuration() {
         final IfLastModified filter = IfLastModified.createAgeCondition(Duration.parse("PT33S"));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final DummyFileAttributes attrs = new DummyFileAttributes();
         final long age = 33 * 1000;
         attrs.lastModified = FileTime.fromMillis(System.currentTimeMillis() - age);
@@ -54,7 +79,12 @@ public class IfLastModifiedTest {
 
     @Test
     public void testAcceptsIfFileAgeExceedsDuration() {
+<<<<<<< HEAD
+        final IfLastModified filter =
+                IfLastModified.newBuilder().setAge(Duration.parse("PT33S")).build();
+=======
         final IfLastModified filter = IfLastModified.createAgeCondition(Duration.parse("PT33S"));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final DummyFileAttributes attrs = new DummyFileAttributes();
         final long age = 33 * 1000 + 5;
         attrs.lastModified = FileTime.fromMillis(System.currentTimeMillis() - age);
@@ -63,7 +93,12 @@ public class IfLastModifiedTest {
 
     @Test
     public void testDoesNotAcceptIfFileAgeLessThanDuration() {
+<<<<<<< HEAD
+        final IfLastModified filter =
+                IfLastModified.newBuilder().setAge(Duration.parse("PT33S")).build();
+=======
         final IfLastModified filter = IfLastModified.createAgeCondition(Duration.parse("PT33S"));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final DummyFileAttributes attrs = new DummyFileAttributes();
         final long age = 33 * 1000 - 5;
         attrs.lastModified = FileTime.fromMillis(System.currentTimeMillis() - age);
@@ -73,7 +108,14 @@ public class IfLastModifiedTest {
     @Test
     public void testAcceptCallsNestedConditionsOnlyIfPathAccepted() {
         final CountingCondition counter = new CountingCondition(true);
+<<<<<<< HEAD
+        final IfLastModified filter = IfLastModified.newBuilder()
+                .setAge(Duration.parse("PT33S"))
+                .setNestedConditions(counter)
+                .build();
+=======
         final IfLastModified filter = IfLastModified.createAgeCondition(Duration.parse("PT33S"), counter);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final DummyFileAttributes attrs = new DummyFileAttributes();
         final long oldEnough = 33 * 1000 + 5;
         attrs.lastModified = FileTime.fromMillis(System.currentTimeMillis() - oldEnough);
@@ -98,8 +140,15 @@ public class IfLastModifiedTest {
     @Test
     public void testBeforeTreeWalk() {
         final CountingCondition counter = new CountingCondition(true);
+<<<<<<< HEAD
+        final IfLastModified filter = IfLastModified.newBuilder()
+                .setAge(Duration.parse("PT33S"))
+                .setNestedConditions(counter, counter, counter)
+                .build();
+=======
         final IfLastModified filter =
                 IfLastModified.createAgeCondition(Duration.parse("PT33S"), counter, counter, counter);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         filter.beforeFileTreeWalk();
         assertEquals(3, counter.getBeforeFileTreeWalkCount());
     }
@@ -107,7 +156,12 @@ public class IfLastModifiedTest {
     @Test
     public void testCreateAgeConditionCalledProgrammaticallyThrowsNPEWhenAgeIsNotSpecified() {
         Duration age = null;
+<<<<<<< HEAD
+        assertThrows(
+                NullPointerException.class, () -> IfLastModified.newBuilder().setAge(age));
+=======
         assertThrows(NullPointerException.class, () -> IfLastModified.createAgeCondition(age));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @ParameterizedTest

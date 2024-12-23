@@ -16,7 +16,14 @@
  */
 package org.apache.logging.log4j.layout.template.json.resolver;
 
+<<<<<<< HEAD
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.readJson;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.uncheckedSleep;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.withContextFromTemplate;
+=======
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -28,7 +35,11 @@ import org.junit.jupiter.api.Test;
 class TimestampResolverTest {
 
     /**
+<<<<<<< HEAD
+     * Reproduces <a href="https://issues.apache.org/jira/browse/LOG4J2-3183">LOG4J2-3183</a>.
+=======
      * @see <a href="https://issues.apache.org/jira/browse/LOG4J2-3183">LOG4J2-3183</a>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
      */
     @Test
     void epoch_nanos_should_not_overlap() {

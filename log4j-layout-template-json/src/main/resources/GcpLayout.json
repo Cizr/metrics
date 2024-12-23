@@ -40,6 +40,18 @@
     "$resolver": "counter",
     "stringified": true
   },
+<<<<<<< HEAD
+  "logging.googleapis.com/trace": {
+    "$resolver": "mdc",
+    "key": "trace_id"
+  },
+  "logging.googleapis.com/spanId": {
+    "$resolver": "mdc",
+    "key": "span_id"
+  },
+  "logging.googleapis.com/trace_sampled": true,
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   "_exception": {
     "class": {
       "$resolver": "exception",

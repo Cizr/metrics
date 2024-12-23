@@ -24,6 +24,11 @@ import java.util.LinkedHashMap;
 import org.apache.logging.log4j.core.util.Integers;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 class JsonReaderTest {
 
@@ -234,6 +239,10 @@ class JsonReaderTest {
     void test_valid_objects() {
         test("{}", Collections.emptyMap());
         test("{\"foo\":\"bar\"}", Collections.singletonMap("foo", "bar"));
+<<<<<<< HEAD
+        test("{\"x\":{\"x\": \"x\"}}", Collections.singletonMap("x", Collections.singletonMap("x", "x")));
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test
@@ -299,6 +308,24 @@ class JsonReaderTest {
                 .hasMessage("was expecting an object key at index 13: ARRAY_END");
     }
 
+<<<<<<< HEAD
+    @ParameterizedTest
+    @CsvSource(
+            value = {
+                "a|7|{\"a\":1,\"a\":2}",
+                "a|13|{\"a\":1,\"b\":2,\"a\":3}",
+                "c|24|{\"a\":1,\"b\":{\"c\":2,\"d\":3,\"c\":4}}"
+            },
+            delimiter = '|')
+    void test_conflicting_object_key_1(final String key, final int index, final String json) {
+        Assertions.assertThatThrownBy(() -> JsonReader.read(json))
+                .as("key=`%s`, index=%d, json=`%s`", key, index, json)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("found duplicate object key at index %d: %s", index, key);
+    }
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     @Test
     @SuppressWarnings("DoubleBraceInitialization")
     public void test_nesting() {

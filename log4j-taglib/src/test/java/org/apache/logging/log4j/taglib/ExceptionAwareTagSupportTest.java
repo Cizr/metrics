@@ -16,7 +16,12 @@
  */
 package org.apache.logging.log4j.taglib;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import org.junit.Before;
 import org.junit.Test;

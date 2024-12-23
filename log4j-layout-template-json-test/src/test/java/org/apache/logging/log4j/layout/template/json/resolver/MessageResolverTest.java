@@ -16,7 +16,14 @@
  */
 package org.apache.logging.log4j.layout.template.json.resolver;
 
+<<<<<<< HEAD
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.CONFIGURATION;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.usingSerializedLogEventAccessor;
+import static org.apache.logging.log4j.layout.template.json.TestHelpers.writeJson;
+=======
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.nio.charset.StandardCharsets;
@@ -34,6 +41,10 @@ import org.apache.logging.log4j.core.test.junit.Named;
 import org.apache.logging.log4j.layout.template.json.JsonTemplateLayout;
 import org.apache.logging.log4j.layout.template.json.util.JsonReader;
 import org.apache.logging.log4j.message.Message;
+<<<<<<< HEAD
+import org.apache.logging.log4j.message.MultiformatMessage;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.message.ObjectMessage;
 import org.apache.logging.log4j.message.SimpleMessage;
 import org.apache.logging.log4j.message.StringMapMessage;
@@ -43,7 +54,11 @@ import org.junit.jupiter.api.Test;
 class MessageResolverTest {
 
     /**
+<<<<<<< HEAD
+     * A <a href="https://issues.apache.org/jira/browse/LOG4J2-3080">LOG4J2-3080</a> reproduction.
+=======
      * @see <a href="https://issues.apache.org/jira/browse/LOG4J2-3080">LOG4J2-3080</a>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
      */
     @Test
     @LoggerContextSource("messageFallbackKeyUsingJsonTemplateLayout.xml")
@@ -169,7 +184,11 @@ class MessageResolverTest {
     }
 
     @Test
+<<<<<<< HEAD
+    void test_MapMessage() {
+=======
     void test_MapMessage_serialization() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
         // Create the event template.
         final String eventTemplate = writeJson(asMap("message", asMap("$resolver", "message")));
@@ -198,4 +217,61 @@ class MessageResolverTest {
                     .isEqualTo("val3.1");
         });
     }
+<<<<<<< HEAD
+
+    @Test
+    void test_MultiformatMessage() {
+
+        // Create the event template
+        final String eventTemplate = writeJson(asMap("$resolver", "message"));
+
+        // Create the layout
+        final JsonTemplateLayout layout = JsonTemplateLayout.newBuilder()
+                .setConfiguration(CONFIGURATION)
+                .setEventTemplate(eventTemplate)
+                .build();
+
+        // Create the log event with a `TestMessage`
+        final LogEvent logEvent = Log4jLogEvent.newBuilder()
+                .setMessage(new TestMultiformatMessage())
+                .setTimeMillis(System.currentTimeMillis())
+                .build();
+
+        // Check the serialized event
+        usingSerializedLogEventAccessor(layout, logEvent, accessor -> assertThat(accessor.getString("foo"))
+                .isEqualTo("bar"));
+    }
+
+    private static final class TestMultiformatMessage implements MultiformatMessage {
+
+        @Override
+        public String getFormattedMessage() {
+            return "{\"foo\": \"bar\"}";
+        }
+
+        @Override
+        public String[] getFormats() {
+            return new String[] {"JSON"};
+        }
+
+        @Override
+        public String getFormattedMessage(final String[] formats) {
+            if (formats.length != 1 || !"JSON".equals(formats[0])) {
+                throw new UnsupportedOperationException();
+            }
+            return getFormattedMessage();
+        }
+
+        @Override
+        public Object[] getParameters() {
+            return new Object[0];
+        }
+
+        @Override
+        public Throwable getThrowable() {
+            return null;
+        }
+    }
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 }

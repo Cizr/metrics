@@ -19,8 +19,16 @@ package org.apache.logging.log4j.core.appender.rolling;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+<<<<<<< HEAD
+import static org.junit.Assume.assumeFalse;
 
 import java.io.File;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+=======
+
+import java.io.File;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.test.junit.LoggerContextRule;
 import org.apache.logging.log4j.core.util.Constants;
@@ -29,9 +37,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.RuleChain;
 
+<<<<<<< HEAD
+=======
 /**
  *
  */
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 public class RollingAppenderDeleteScriptFri13thTest {
 
     private static final String CONFIG = "log4j-rolling-with-custom-delete-script-fri13th.xml";
@@ -50,6 +61,12 @@ public class RollingAppenderDeleteScriptFri13thTest {
 
     @Test
     public void testAppender() throws Exception {
+<<<<<<< HEAD
+        LocalDate now = LocalDate.now();
+        // Ignore on Friday 13th
+        assumeFalse(now.getDayOfWeek() == DayOfWeek.FRIDAY && now.getDayOfMonth() == 13);
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final File dir = new File(DIR);
         dir.mkdirs();
         for (int i = 1; i <= 30; i++) {

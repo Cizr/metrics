@@ -18,7 +18,12 @@ package org.apache.logging.log4j.core;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,9 +43,14 @@ public class EventParameterMemoryLeakTest {
 
     @BeforeAll
     public static void beforeClass() {
+<<<<<<< HEAD
+        System.setProperty("log4j2.enableThreadlocals", "true");
+        System.setProperty("log4j2.enableDirectEncoders", "true");
+=======
         System.setProperty("log4j2.enable.threadlocals", "true");
         System.setProperty("log4j2.enable.direct.encoders", "true");
         System.setProperty("log4j2.is.webapp", "false");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         System.setProperty(ConfigurationFactory.CONFIGURATION_FILE_PROPERTY, "EventParameterMemoryLeakTest.xml");
     }
 

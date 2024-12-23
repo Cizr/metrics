@@ -26,6 +26,18 @@ import java.util.List;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.status.StatusData;
 import org.apache.logging.log4j.status.StatusLogger;
+<<<<<<< HEAD
+import org.junit.jupiter.api.Test;
+import org.junitpioneer.jupiter.SetSystemProperty;
+
+@SetSystemProperty(key = "log4j2.status.entries", value = "10")
+@SetSystemProperty(key = "log4j2.StatusLogger.level", value = "WARN")
+class AbstractActionTest {
+
+    // Test for LOG4J2-2658
+    @Test
+    void testExceptionsAreLoggedToStatusLogger() {
+=======
 import org.apache.logging.log4j.test.junit.StatusLoggerLevel;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +47,7 @@ public class AbstractActionTest {
     // Test for LOG4J2-2658
     @Test
     public void testExceptionsAreLoggedToStatusLogger() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final StatusLogger statusLogger = StatusLogger.getLogger();
         statusLogger.clear();
         new TestAction().run();
@@ -53,7 +66,11 @@ public class AbstractActionTest {
     }
 
     @Test
+<<<<<<< HEAD
+    void testRuntimeExceptionsAreLoggedToStatusLogger() {
+=======
     public void testRuntimeExceptionsAreLoggedToStatusLogger() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final StatusLogger statusLogger = StatusLogger.getLogger();
         statusLogger.clear();
         new AbstractAction() {
@@ -71,7 +88,11 @@ public class AbstractActionTest {
     }
 
     @Test
+<<<<<<< HEAD
+    void testErrorsAreLoggedToStatusLogger() {
+=======
     public void testErrorsAreLoggedToStatusLogger() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final StatusLogger statusLogger = StatusLogger.getLogger();
         statusLogger.clear();
         new AbstractAction() {

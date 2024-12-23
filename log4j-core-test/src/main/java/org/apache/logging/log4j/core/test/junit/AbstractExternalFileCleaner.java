@@ -16,6 +16,10 @@
  */
 package org.apache.logging.log4j.core.test.junit;
 
+<<<<<<< HEAD
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -181,6 +185,10 @@ public abstract class AbstractExternalFileCleaner extends ExternalResource {
         }
     }
 
+<<<<<<< HEAD
+    @SuppressFBWarnings("INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE")
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     protected void printStackTrace(final Throwable t) {
         if (printStream != null) {
             t.printStackTrace(printStream);

@@ -16,8 +16,15 @@
  */
 package org.apache.logging.log4j.core.appender;
 
+<<<<<<< HEAD
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+=======
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.BufferedReader;
 import java.io.File;

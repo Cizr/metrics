@@ -29,7 +29,11 @@ import org.apache.logging.log4j.core.config.plugins.Plugin;
  */
 @Plugin(name = "CustomConfigurationFactory", category = ConfigurationFactory.CATEGORY)
 @Order(50)
+<<<<<<< HEAD
+public final class CustomConfigurationFactory extends ConfigurationFactory {
+=======
 public class CustomConfigurationFactory extends ConfigurationFactory {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     /**
      * Valid file extensions for XML files.

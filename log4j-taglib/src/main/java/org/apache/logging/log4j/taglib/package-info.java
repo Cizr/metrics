@@ -20,7 +20,11 @@
  * @since 2.0
  */
 @Export
+<<<<<<< HEAD
+@Version("2.24.1")
+=======
 @Version("2.20.1")
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 package org.apache.logging.log4j.taglib;
 
 import org.osgi.annotation.bundle.Export;

@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.layout.template.json.resolver;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
 import java.util.LinkedList;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -71,7 +75,11 @@ public class TemplateResolverInterceptors {
                     final Map<String, PluginType<?>> pluginTypeByName,
                     final Class<V> valueClass,
                     final Class<C> contextClass) {
+<<<<<<< HEAD
+        final List<I> interceptors = new ArrayList<>();
+=======
         final List<I> interceptors = new LinkedList<>();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final Set<String> pluginNames = pluginTypeByName.keySet();
         for (final String pluginName : pluginNames) {
             final PluginType<?> pluginType = pluginTypeByName.get(pluginName);
@@ -100,6 +108,10 @@ public class TemplateResolverInterceptors {
         }
     }
 
+<<<<<<< HEAD
+    @SuppressWarnings("TypeParameterUnusedInFormals")
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     private static <V, C extends TemplateResolverContext<V, C>, I extends TemplateResolverInterceptor<V, C>>
             I castInterceptor(
                     final Class<V> valueClass,

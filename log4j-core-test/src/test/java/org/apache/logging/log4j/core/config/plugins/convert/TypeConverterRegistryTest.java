@@ -17,7 +17,14 @@
 package org.apache.logging.log4j.core.config.plugins.convert;
 
 import static org.hamcrest.Matchers.instanceOf;
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import org.junit.Test;
 

@@ -16,7 +16,14 @@
  */
 package org.apache.logging.log4j.core.config;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.List;
 import java.util.Map;

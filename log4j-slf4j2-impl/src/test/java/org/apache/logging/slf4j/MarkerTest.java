@@ -16,7 +16,14 @@
  */
 package org.apache.logging.slf4j;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
@@ -128,12 +135,19 @@ public class MarkerTest {
         final Marker log4jParent = MarkerManager.getMarker(parentMakerName);
         final Marker log4jMarker = MarkerManager.getMarker(childMarkerName);
         final Marker log4jMarker2 = MarkerManager.getMarker(childMarkerName);
+<<<<<<< HEAD
+        assertEquals(log4jMarker, log4jMarker2);
+        assertEquals(slf4jMarker, slf4jMarker2);
+        assertNotEquals(log4jParent, log4jMarker);
+        assertNotEquals(slf4jParent, slf4jMarker);
+=======
         assertEquals(log4jParent, log4jParent);
         assertEquals(log4jMarker, log4jMarker);
         assertEquals(log4jMarker, log4jMarker2);
         assertEquals(slf4jMarker, slf4jMarker2);
         assertNotEquals(log4jParent, log4jMarker);
         assertNotEquals(log4jMarker, log4jParent);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Test

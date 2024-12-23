@@ -93,7 +93,11 @@ public class ConcurrentAsyncLoggerToFileBenchmark {
         @Setup
         public final void before() {
             new File("target/ConcurrentAsyncLoggerToFileBenchmark.log").delete();
+<<<<<<< HEAD
+            System.setProperty("log4j2.enableThreadlocals", "true");
+=======
             System.setProperty("log4j2.is.webapp", "false");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             asyncLoggerType.setProperties();
             queueFullPolicy.setProperties();
             logger = LogManager.getLogger(ConcurrentAsyncLoggerToFileBenchmark.class);

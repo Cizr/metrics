@@ -16,7 +16,11 @@
  */
 @Export
 @Open("org.apache.logging.log4j.core")
+<<<<<<< HEAD
+@Version("2.21.0")
+=======
 @Version("2.20.1")
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 package org.apache.logging.log4j.layout.template.json.resolver;
 
 import aQute.bnd.annotation.jpms.Open;

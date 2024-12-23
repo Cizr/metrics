@@ -29,7 +29,10 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+<<<<<<< HEAD
+=======
 // Config from `log4j-core` test jar.
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 @LoggerContextSource("log4j2-config.xml")
 public class Log4jEventBuilderTest {
 

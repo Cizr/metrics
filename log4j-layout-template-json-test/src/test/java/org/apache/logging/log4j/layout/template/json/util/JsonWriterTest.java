@@ -41,7 +41,11 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
+<<<<<<< HEAD
+@SuppressWarnings({"DoubleBraceInitialization", "UnnecessaryStringBuilder"})
+=======
 @SuppressWarnings("DoubleBraceInitialization")
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 class JsonWriterTest {
 
     private static final JsonWriter WRITER = JsonWriter.newBuilder()
@@ -150,7 +154,11 @@ class JsonWriterTest {
 
     @Test
     void test_writeObject_StringMap() {
+<<<<<<< HEAD
+        final StringMap map = new JdkMapAdapterStringMap(Collections.singletonMap("a", "b"), true);
+=======
         final StringMap map = new JdkMapAdapterStringMap(Collections.singletonMap("a", "b"));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final String expectedJson = "{'a':'b'}".replace('\'', '"');
         final String actualJson = withLockedWriterReturning(writer -> writer.use(() -> writer.writeObject(map)));
         Assertions.assertThat(actualJson).isEqualTo(expectedJson);
@@ -225,7 +233,11 @@ class JsonWriterTest {
                                         put("foo", "bar");
                                     }
                                 }),
+<<<<<<< HEAD
+                                new JdkMapAdapterStringMap(Collections.singletonMap("a", "b"), true)));
+=======
                                 new JdkMapAdapterStringMap(Collections.singletonMap("a", "b"))));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                 put("key7", (StringBuilderFormattable) buffer -> buffer.append(7.7777777777777D));
             }
         };

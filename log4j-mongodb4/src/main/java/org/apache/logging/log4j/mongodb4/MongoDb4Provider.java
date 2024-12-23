@@ -37,9 +37,17 @@ import org.bson.codecs.configuration.CodecRegistry;
  * The MongoDB implementation of {@link NoSqlProvider} using the MongoDB driver
  * version 4 API.
  */
+<<<<<<< HEAD
+@Plugin(name = MongoDb4Provider.PLUGIN_NAME, category = Core.CATEGORY_NAME, printObject = true)
+public final class MongoDb4Provider implements NoSqlProvider<MongoDb4Connection> {
+
+    static final String PLUGIN_NAME = "MongoDb4";
+
+=======
 @Plugin(name = "MongoDb4", category = Core.CATEGORY_NAME, printObject = true)
 public final class MongoDb4Provider implements NoSqlProvider<MongoDb4Connection> {
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public static class Builder<B extends Builder<B>> extends AbstractFilterable.Builder<B>
             implements org.apache.logging.log4j.core.util.Builder<MongoDb4Provider> {
 
@@ -55,6 +63,10 @@ public final class MongoDb4Provider implements NoSqlProvider<MongoDb4Connection>
 
         @Override
         public MongoDb4Provider build() {
+<<<<<<< HEAD
+            StatusLogger.getLogger().warn("The {} Appender is deprecated, use the MongoDb Appender.", PLUGIN_NAME);
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             return new MongoDb4Provider(connectionStringSource, capped, collectionSize);
         }
 

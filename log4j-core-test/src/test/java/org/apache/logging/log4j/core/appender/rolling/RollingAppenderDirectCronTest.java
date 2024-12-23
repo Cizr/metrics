@@ -16,6 +16,55 @@
  */
 package org.apache.logging.log4j.core.appender.rolling;
 
+<<<<<<< HEAD
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.waitAtMost;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.appender.RollingFileAppender;
+import org.apache.logging.log4j.core.test.junit.LoggerContextSource;
+import org.apache.logging.log4j.core.test.junit.Named;
+import org.apache.logging.log4j.status.StatusLogger;
+import org.apache.logging.log4j.test.junit.TempLoggingDir;
+import org.apache.logging.log4j.test.junit.UsingStatusListener;
+import org.junit.jupiter.api.Test;
+
+@UsingStatusListener
+class RollingAppenderDirectCronTest {
+
+    private static final Pattern FILE_PATTERN =
+            Pattern.compile("test-(\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2})\\.log");
+
+    @TempLoggingDir
+    private static Path loggingPath;
+
+    @Test
+    @LoggerContextSource("classpath:appender/rolling/RollingAppenderDirectCronTest.xml")
+    void testAppender(final LoggerContext ctx, @Named("RollingFile") final RollingFileAppender app) throws Exception {
+        final Logger logger = ctx.getLogger(RollingAppenderDirectCronTest.class);
+        int msgNumber = 1;
+        logger.debug("This is test message number {}.", msgNumber++);
+        assertThat(loggingPath).isNotEmptyDirectory();
+        final RolloverDelay delay = new RolloverDelay(app.getManager());
+        delay.waitForRollover();
+
+        delay.reset(3);
+        final int MAX_TRIES = 30;
+        for (int i = 0; i < MAX_TRIES; ++i) {
+            logger.debug("This is test message number {}.", msgNumber++);
+            Thread.sleep(110);
+=======
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -67,12 +116,20 @@ public class RollingAppenderDirectCronTest {
         for (int i = 0; i < MAX_TRIES; ++i) {
             logger.debug("Adding new event {}", i);
             Thread.sleep(100);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
         delay.waitForRollover();
     }
 
+<<<<<<< HEAD
+    private static class RolloverDelay implements RolloverListener {
+        private final Logger logger = StatusLogger.getLogger();
+        private volatile CountDownLatch latch;
+        private volatile AssertionError assertion;
+=======
     private class RolloverDelay implements RolloverListener {
         private volatile CountDownLatch latch;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
         public RolloverDelay(final RollingFileManager manager) {
             latch = new CountDownLatch(1);
@@ -80,12 +137,20 @@ public class RollingAppenderDirectCronTest {
         }
 
         public void waitForRollover() {
+<<<<<<< HEAD
+            waitAtMost(5, TimeUnit.SECONDS)
+                    .alias("Rollover timeout")
+                    .until(() -> latch.getCount() == 0 || assertion != null);
+            if (assertion != null) {
+                throw assertion;
+=======
             try {
                 if (!latch.await(3, TimeUnit.SECONDS)) {
                     fail("failed to rollover");
                 }
             } catch (InterruptedException ex) {
                 fail("failed to rollover");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             }
         }
 
@@ -94,6 +159,30 @@ public class RollingAppenderDirectCronTest {
         }
 
         @Override
+<<<<<<< HEAD
+        public void rolloverTriggered(final String fileName) {
+            logger.info("Rollover triggered for file {}.", fileName);
+        }
+
+        @Override
+        public void rolloverComplete(final String fileName) {
+            logger.info("Rollover completed for file {}.", fileName);
+            try {
+                final Path path = Paths.get(fileName);
+                final Matcher matcher = FILE_PATTERN.matcher(path.getFileName().toString());
+                assertThat(matcher).as("Rolled file").matches();
+                try {
+                    final List<String> lines = Files.readAllLines(path);
+                    assertThat(lines).isNotEmpty();
+                    assertThat(lines.get(0)).startsWith(matcher.group(1));
+                } catch (final IOException ex) {
+                    fail("Unable to read file " + fileName + ": " + ex.getMessage());
+                }
+                latch.countDown();
+            } catch (final AssertionError ex) {
+                assertion = ex;
+            }
+=======
         public void rolloverTriggered(final String fileName) {}
 
         @Override
@@ -111,6 +200,7 @@ public class RollingAppenderDirectCronTest {
                 fail("Unable to read file " + fileName + ": " + ex.getMessage());
             }
             latch.countDown();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
     }
 }

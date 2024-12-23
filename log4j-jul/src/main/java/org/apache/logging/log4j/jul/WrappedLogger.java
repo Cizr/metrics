@@ -17,6 +17,10 @@
 package org.apache.logging.log4j.jul;
 
 import org.apache.logging.log4j.Level;
+<<<<<<< HEAD
+import org.apache.logging.log4j.message.EntryMessage;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.spi.ExtendedLogger;
 import org.apache.logging.log4j.spi.ExtendedLoggerWrapper;
 
@@ -70,6 +74,19 @@ class WrappedLogger extends ExtendedLoggerWrapper {
     }
 
     @Override
+<<<<<<< HEAD
+    public EntryMessage traceEntry() {
+        return enter(FQCN, null, (Object[]) null);
+    }
+
+    @Override
+    public EntryMessage traceEntry(final String message, final Object... params) {
+        return enter(FQCN, message, params);
+    }
+
+    @Override
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public <T extends Throwable> T throwing(final T t) {
         return throwing(FQCN, LevelTranslator.toLevel(java.util.logging.Level.FINER), t);
     }

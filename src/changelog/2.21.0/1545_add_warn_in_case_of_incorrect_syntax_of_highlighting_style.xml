@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://logging.apache.org/xml/ns"
+       xsi:schemaLocation="https://logging.apache.org/xml/ns https://logging.apache.org/xml/ns/log4j-changelog-0.xsd"
+       type="added">
+    <issue id="1545" link="https://github.com/apache/logging-log4j2/issues/1545"/>
+    <issue id="1637" link="https://github.com/apache/logging-log4j2/pull/1637"/>
+=======
 <!--
   ~ Licensed to the Apache Software Foundation (ASF) under one or more
   ~ contributor license agreements.  See the NOTICE file distributed with
@@ -24,5 +32,6 @@
     <author id="github:aawad6" name="Ammar Awad"/>
     <author id="github:ppkarwasz"/>
     <author id="github:vy"/>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <description format="asciidoc">Added a warning for incorrect syntax of highlighting styles</description>
 </entry>

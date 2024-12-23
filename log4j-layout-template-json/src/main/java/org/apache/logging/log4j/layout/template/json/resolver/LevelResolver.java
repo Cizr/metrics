@@ -88,11 +88,27 @@ public final class LevelResolver implements EventResolver {
 
     private static final EventResolver SEVERITY_CODE_RESOLVER =
             (final LogEvent logEvent, final JsonWriter jsonWriter) -> {
+<<<<<<< HEAD
+                final Level level = logEvent.getLevel();
+                final int standardLevelOrdinal = level.getStandardLevel().ordinal();
+                final String severityCodeResolution =
+                        SEVERITY_CODE_RESOLUTION_BY_STANDARD_LEVEL_ORDINAL[standardLevelOrdinal];
+                if (severityCodeResolution != null) {
+                    jsonWriter.writeRawString(severityCodeResolution);
+                }
+                // `Level.values()` can change at runtime and cause a lookup miss.
+                // When that happens, fallback to the slow path:
+                else {
+                    final int severityCode = Severity.getSeverity(level).getCode();
+                    jsonWriter.writeNumber(severityCode);
+                }
+=======
                 final int standardLevelOrdinal =
                         logEvent.getLevel().getStandardLevel().ordinal();
                 final String severityCodeResolution =
                         SEVERITY_CODE_RESOLUTION_BY_STANDARD_LEVEL_ORDINAL[standardLevelOrdinal];
                 jsonWriter.writeRawString(severityCodeResolution);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             };
 
     private final EventResolver internalResolver;
@@ -132,7 +148,14 @@ public final class LevelResolver implements EventResolver {
             final String resolution = resolutionByLevel.get(level);
             if (resolution != null) {
                 jsonWriter.writeRawString(resolution);
+<<<<<<< HEAD
+            }
+            // `Level.values()` can change at runtime and cause a lookup miss.
+            // When that happens, fallback to the slow path:
+            else {
+=======
             } else {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                 final String levelName = level.name();
                 jsonWriter.writeString(levelName);
             }
@@ -149,8 +172,22 @@ public final class LevelResolver implements EventResolver {
                             contextJsonWriter.writeString(severityKeyword);
                         })));
         return (final LogEvent logEvent, final JsonWriter jsonWriter) -> {
+<<<<<<< HEAD
+            final Level level = logEvent.getLevel();
+            String resolution = resolutionByLevel.get(level);
+            if (resolution != null) {
+                jsonWriter.writeRawString(resolution);
+            }
+            // `Level.values()` can change at runtime and cause a lookup miss.
+            // When that happens, fallback to the slow path:
+            else {
+                final String severityKeyword = Severity.getSeverity(level).name();
+                jsonWriter.writeString(severityKeyword);
+            }
+=======
             final String resolution = resolutionByLevel.get(logEvent.getLevel());
             jsonWriter.writeRawString(resolution);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         };
     }
 

@@ -15,7 +15,11 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<<<<<<< HEAD
+<Configuration status="INFO">
+=======
 <Configuration status="INFO" packages="">
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 	<Appenders>
 		<File name="file" ignoreExceptions="false" fileName="target/test-gelf-layout.log" append="false">
 			<GelfLayout host="myself" compressionType="OFF"/>

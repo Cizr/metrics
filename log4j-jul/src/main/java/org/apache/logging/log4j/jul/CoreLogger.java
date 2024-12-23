@@ -18,6 +18,11 @@ package org.apache.logging.log4j.jul;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
+import org.apache.logging.log4j.core.config.Configurator;
+import org.apache.logging.log4j.core.config.LoggerConfig;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Log4j Core implementation of the JUL {@link Logger} class. <strong>Note that this implementation does
@@ -42,9 +47,23 @@ public class CoreLogger extends ApiLogger {
     }
 
     @Override
+<<<<<<< HEAD
+    public Level getLevel() {
+        final LoggerConfig config = logger.get();
+        return config.getName().equals(logger.getName())
+                ? LevelTranslator.toJavaLevel(config.getExplicitLevel())
+                : null;
+    }
+
+    @Override
+    public void setLevel(final Level level) throws SecurityException {
+        doSetLevel(level); // checks permissions
+        Configurator.setLevel(logger, LevelTranslator.toLevel(level));
+=======
     public void setLevel(final Level level) throws SecurityException {
         super.doSetLevel(level); // checks permissions
         logger.setLevel(LevelTranslator.toLevel(level));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     /**

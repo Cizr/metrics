@@ -16,7 +16,13 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
@@ -25,6 +31,46 @@
   </parent>
 
   <artifactId>log4j-mongodb4</artifactId>
+<<<<<<< HEAD
+
+  <name>Apache Log4j MongoDB 4</name>
+  <description>MongoDB appender for Log4j using the MongoDB 4 driver API.</description>
+
+  <properties>
+    <!-- OSGi and JPMS options -->
+    <Fragment-Host>org.apache.logging.log4j.core</Fragment-Host>
+    <!-- Dependency versions -->
+    <mongodb4.version>4.11.4</mongodb4.version>
+    <slf4j.version>2.0.16</slf4j.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>bson</artifactId>
+        <version>${mongodb4.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-core</artifactId>
+        <version>${mongodb4.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-sync</artifactId>
+        <version>${mongodb4.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+
+=======
   <name>Apache Log4j MongoDB 4</name>
   <description>MongoDB appender for Log4j using the MongoDB 4 driver API.</description>
   <properties>
@@ -36,26 +82,47 @@
   </properties>
 
   <dependencies>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>bson</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>mongodb-driver-core</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>mongodb-driver-sync</artifactId>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api-test</artifactId>
@@ -67,6 +134,10 @@
         </exclusion>
       </exclusions>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core-test</artifactId>
@@ -78,11 +149,18 @@
         </exclusion>
       </exclusions>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+=======
     <dependency>
       <groupId>de.flapdoodle.embed</groupId>
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
@@ -98,11 +176,16 @@
       <artifactId>de.flapdoodle.reverse</artifactId>
       <scope>test</scope>
     </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   </dependencies>
 
   <build>
@@ -110,6 +193,11 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+<<<<<<< HEAD
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+=======
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <!--
@@ -133,6 +221,7 @@
         <configuration>
           <!-- TODO: fix concurrent download of MongoDB distribution. -->
           <forkCount>1</forkCount>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         </configuration>
         <dependencies>
           <dependency>
@@ -140,15 +229,127 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit-jupiter.version}</version>
           </dependency>
+<<<<<<< HEAD
+=======
           <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
             <version>${slf4j.version}</version>
           </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         </dependencies>
       </plugin>
 
     </plugins>
   </build>
 
+<<<<<<< HEAD
+  <profiles>
+    <profile>
+
+      <id>docker</id>
+
+      <!--
+        ~ Only the `ubuntu` CI runners have access to Docker
+        -->
+      <activation>
+        <os>
+          <family>linux</family>
+        </os>
+        <property>
+          <name>env.CI</name>
+          <value>true</value>
+        </property>
+      </activation>
+
+      <build>
+        <plugins>
+
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <configuration>
+              <verbose>all</verbose>
+              <startParallel>true</startParallel>
+              <autoCreateCustomNetworks>true</autoCreateCustomNetworks>
+              <images>
+                <image>
+                  <alias>mongo</alias>
+                  <name>mongo:latest</name>
+                  <run>
+                    <ports>
+                      <!--
+                        ~ Binds an ephemeral port on the host to port 27017 in the container.
+                        ~ Assigns the value of the port to the `mongo.port` property.
+                        -->
+                      <port>localhost:mongo.port:27017</port>
+                    </ports>
+                  </run>
+                </image>
+              </images>
+            </configuration>
+            <executions>
+              <execution>
+                <id>start-mongo</id>
+                <goals>
+                  <goal>start</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>stop-mongo</id>
+                <goals>
+                  <goal>stop</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+              </dependency>
+              <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-nop</artifactId>
+                <version>${slf4j.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+                <configuration>
+                  <reuseForks>true</reuseForks>
+                  <includes>
+                    <include>**/*IT.java</include>
+                  </includes>
+                  <systemPropertyVariables>
+                    <!--
+                      ~ Silence the tests.
+                      ~ Annotate tests with `@UsingStatusListener` to see debug output on error
+                      -->
+                    <log4j.statusLogger.level>OFF</log4j.statusLogger.level>
+                    <!-- The `mongo.port` variable is created by `docker-maven-plugin` -->
+                    <log4j.mongo.port>${mongo.port}</log4j.mongo.port>
+                  </systemPropertyVariables>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+
+    </profile>
+  </profiles>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

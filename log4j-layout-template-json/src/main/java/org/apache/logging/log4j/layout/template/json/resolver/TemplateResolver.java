@@ -48,7 +48,11 @@ public interface TemplateResolver<V> {
      * For instance, the stack trace resolver can be short-circuited using this
      * check if the stack traces are disabled in the layout configuration.
      */
+<<<<<<< HEAD
+    default boolean isResolvable(final V value) {
+=======
     default boolean isResolvable(V value) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         return true;
     }
 
@@ -62,7 +66,11 @@ public interface TemplateResolver<V> {
      *
      * @param succeedingEntry false, if this is the first element in a collection; true, otherwise
      */
+<<<<<<< HEAD
+    default void resolve(final V value, final JsonWriter jsonWriter, final boolean succeedingEntry) {
+=======
     default void resolve(V value, JsonWriter jsonWriter, boolean succeedingEntry) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         resolve(value, jsonWriter);
     }
 }

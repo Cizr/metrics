@@ -22,7 +22,15 @@ import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+<<<<<<< HEAD
+import org.apache.logging.log4j.layout.template.json.util.CharSequencePointer;
+import org.apache.logging.log4j.layout.template.json.util.JsonWriter;
+import org.apache.logging.log4j.layout.template.json.util.Recycler;
+import org.apache.logging.log4j.layout.template.json.util.RecyclerFactory;
+import org.apache.logging.log4j.layout.template.json.util.TruncatingBufferedPrintWriter;
+=======
 import org.apache.logging.log4j.layout.template.json.util.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Exception stack trace to JSON string resolver used by {@link ExceptionResolver}.
@@ -115,7 +123,11 @@ final class StackTraceStringResolver implements StackTraceResolver {
         for (; ; ) {
 
             // Find the next label start, if present.
+<<<<<<< HEAD
+            final int labeledLineStartIndex = findLabeledLineStartIndex(srcWriter, startIndex);
+=======
             final int labeledLineStartIndex = findLabeledLineStartIndex(srcWriter, startIndex, srcWriter.length());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             final int endIndex = labeledLineStartIndex >= 0 ? labeledLineStartIndex : srcWriter.length();
 
             // Copy up to the truncation point, if it matches.
@@ -191,6 +203,17 @@ final class StackTraceStringResolver implements StackTraceResolver {
         return -1;
     }
 
+<<<<<<< HEAD
+    private static int findLabeledLineStartIndex(final CharSequence buffer, final int startIndex) {
+        // Note that the index arithmetic in this method is not guarded.
+        // That is, there are no `Math.addExact()` or `Math.subtractExact()` usages.
+        // Since we know a priori that we are already operating within buffer limits.
+        final int bufferLength = buffer.length();
+        for (int bufferIndex = startIndex; bufferIndex < bufferLength; ) {
+
+            // Find the next line start, if exists.
+            final int lineStartIndex = findLineStartIndex(buffer, bufferIndex);
+=======
     private static int findLabeledLineStartIndex(final CharSequence buffer, final int startIndex, final int endIndex) {
         // Note that the index arithmetic in this method is not guarded.
         // That is, there are no `Math.addExact()` or `Math.subtractExact()` usages.
@@ -199,18 +222,27 @@ final class StackTraceStringResolver implements StackTraceResolver {
 
             // Find the next line start, if exists.
             final int lineStartIndex = findLineStartIndex(buffer, bufferIndex, endIndex);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             if (lineStartIndex < 0) {
                 break;
             }
             bufferIndex = lineStartIndex;
 
             // Skip tabs.
+<<<<<<< HEAD
+            while (bufferIndex < bufferLength && '\t' == buffer.charAt(bufferIndex)) {
+=======
             while (bufferIndex < endIndex && '\t' == buffer.charAt(bufferIndex)) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                 bufferIndex++;
             }
 
             // Search for the `Caused by: ` occurrence.
+<<<<<<< HEAD
+            if (bufferIndex < (bufferLength - 11)
+=======
             if (bufferIndex < (endIndex - 11)
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                     && buffer.charAt(bufferIndex) == 'C'
                     && buffer.charAt(bufferIndex + 1) == 'a'
                     && buffer.charAt(bufferIndex + 2) == 'u'
@@ -226,7 +258,11 @@ final class StackTraceStringResolver implements StackTraceResolver {
             }
 
             // Search for the `Suppressed: ` occurrence.
+<<<<<<< HEAD
+            else if (bufferIndex < (bufferLength - 12)
+=======
             else if (bufferIndex < (endIndex - 12)
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                     && buffer.charAt(bufferIndex) == 'S'
                     && buffer.charAt(bufferIndex + 1) == 'u'
                     && buffer.charAt(bufferIndex + 2) == 'p'
@@ -245,6 +281,13 @@ final class StackTraceStringResolver implements StackTraceResolver {
         return -1;
     }
 
+<<<<<<< HEAD
+    private static int findLineStartIndex(final CharSequence buffer, final int startIndex) {
+        for (int bufferIndex = startIndex; bufferIndex < buffer.length(); bufferIndex++) {
+            if (buffer.charAt(bufferIndex) == '\n' && (bufferIndex + 1) < buffer.length()) {
+                return bufferIndex + 1;
+            }
+=======
     private static int findLineStartIndex(final CharSequence buffer, final int startIndex, final int endIndex) {
         char prevChar = '-';
         for (int i = startIndex; i <= endIndex; i++) {
@@ -252,6 +295,7 @@ final class StackTraceStringResolver implements StackTraceResolver {
                 return i;
             }
             prevChar = buffer.charAt(i);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         }
         return -1;
     }

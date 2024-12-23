@@ -17,11 +17,18 @@
 package org.apache.logging.log4j.core.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+<<<<<<< HEAD
+=======
 import static org.junit.jupiter.api.Assertions.assertFalse;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.google.monitoring.runtime.instrumentation.AllocationRecorder;
 import com.google.monitoring.runtime.instrumentation.Sampler;
+<<<<<<< HEAD
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -46,15 +53,24 @@ public enum GcFreeLoggingTestUtil {
 
     public static void executeLogging(final String configurationFile, final Class<?> testClass) throws Exception {
 
+<<<<<<< HEAD
+        System.setProperty("log4j2.enableThreadlocals", "true");
+        System.setProperty("log4j2.enableDirectEncoders", "true");
+        System.setProperty("log4j2.configurationFile", configurationFile);
+=======
         System.setProperty("log4j2.enable.threadlocals", "true");
         System.setProperty("log4j2.enable.direct.encoders", "true");
         System.setProperty("log4j2.is.webapp", "false");
         System.setProperty("log4j.configurationFile", configurationFile);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         System.setProperty("log4j2.clock", "SystemMillisClock");
 
         assertTrue(Constants.ENABLE_THREADLOCALS, "Constants.ENABLE_THREADLOCALS");
         assertTrue(Constants.ENABLE_DIRECT_ENCODERS, "Constants.ENABLE_DIRECT_ENCODERS");
+<<<<<<< HEAD
+=======
         assertFalse(Constants.IS_WEB_APP, "Constants.IS_WEB_APP");
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
         final MyCharSeq myCharSeq = new MyCharSeq();
         final Marker testGrandParent = MarkerManager.getMarker("testGrandParent");
@@ -206,6 +222,10 @@ public enum GcFreeLoggingTestUtil {
         logger.fatal(mapMessage); // LOG4J2-1683
     }
 
+<<<<<<< HEAD
+    @SuppressFBWarnings("COMMAND_INJECTION")
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     public static void runTest(final Class<?> cls) throws Exception {
         final String javaHome = System.getProperty("java.home");
         final String javaBin = javaHome + File.separator + "bin" + File.separator + "java";

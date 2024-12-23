@@ -17,7 +17,12 @@
 package org.apache.logging.log4j.io;
 
 import static org.hamcrest.core.StringStartsWith.startsWith;
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.util.List;
 import org.apache.logging.log4j.Level;

@@ -25,6 +25,11 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
+<<<<<<< HEAD
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.commons.codec.binary.Hex;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
@@ -108,11 +113,20 @@ class JsonTemplateLayoutNullEventDelimiterTest {
 
     private static final class TcpServer extends Thread implements AutoCloseable {
 
+<<<<<<< HEAD
+        private final Lock lock = new ReentrantLock();
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         private final ServerSocket serverSocket;
 
         private final ByteArrayOutputStream outputStream;
 
+<<<<<<< HEAD
+        private int totalReadByteCount = 0;
+=======
         private volatile int totalReadByteCount = 0;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
         private volatile boolean closed = false;
 
@@ -136,9 +150,18 @@ class JsonTemplateLayoutNullEventDelimiterTest {
                         final int readByteCount = inputStream.read(buffer);
                         if (readByteCount != -1) {
                             LOGGER.info("Received bytes {}.", () -> Hex.encodeHex(buffer, 0, readByteCount, false));
+<<<<<<< HEAD
+                            lock.lock();
+                            try {
+                                totalReadByteCount += readByteCount;
+                                outputStream.write(buffer, 0, readByteCount);
+                            } finally {
+                                lock.unlock();
+=======
                             synchronized (this) {
                                 totalReadByteCount += readByteCount;
                                 outputStream.write(buffer, 0, readByteCount);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                             }
                         } else {
                             break;
@@ -159,6 +182,37 @@ class JsonTemplateLayoutNullEventDelimiterTest {
             return serverSocket.getLocalPort();
         }
 
+<<<<<<< HEAD
+        public byte[] getReceivedBytes() {
+            lock.lock();
+            try {
+                return outputStream.toByteArray();
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        public int getTotalReadByteCount() {
+            lock.lock();
+            try {
+                return totalReadByteCount;
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        @Override
+        public void close() {
+            lock.lock();
+            try {
+                unsynchronizedClose();
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        private void unsynchronizedClose() {
+=======
         public synchronized byte[] getReceivedBytes() {
             return outputStream.toByteArray();
         }
@@ -169,6 +223,7 @@ class JsonTemplateLayoutNullEventDelimiterTest {
 
         @Override
         public synchronized void close() {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             if (closed) {
                 throw new IllegalStateException("shutdown has already been invoked");
             }

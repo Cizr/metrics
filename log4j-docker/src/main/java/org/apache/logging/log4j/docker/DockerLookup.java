@@ -95,7 +95,11 @@ public class DockerLookup extends AbstractLookup {
     }
 
     @Override
+<<<<<<< HEAD
+    public String lookup(final LogEvent ignored, final String key) {
+=======
     public String lookup(final LogEvent event, final String key) {
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         if (container == null) {
             return null;
         }

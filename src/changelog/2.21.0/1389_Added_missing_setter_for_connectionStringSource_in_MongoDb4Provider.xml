@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://logging.apache.org/xml/ns"
+       xsi:schemaLocation="https://logging.apache.org/xml/ns https://logging.apache.org/xml/ns/log4j-changelog-0.xsd"
+       type="fixed">
+    <issue id="1389" link="https://github.com/apache/logging-log4j2/issues/1389"/>
+=======
 <!--
   ~ Licensed to the Apache Software Foundation (ASF) under one or more
   ~ contributor license agreements.  See the NOTICE file distributed with
@@ -22,5 +29,6 @@
     <issue id="1389" link="https://github.com/apache/logging-log4j2/issues/1389"/>
     <author id="ihordz" name="Ihor Dziuba"/>
     <author id="vy"/>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <description format="asciidoc">Added missing setter for `connectionStringSource` in `MongoDb4Provider` builder</description>
 </entry>

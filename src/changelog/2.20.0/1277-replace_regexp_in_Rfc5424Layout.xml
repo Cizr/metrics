@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://logging.apache.org/xml/ns"
+       xsi:schemaLocation="https://logging.apache.org/xml/ns https://logging.apache.org/xml/ns/log4j-changelog-0.xsd"
+       type="fixed">
+    <issue id="1277" link="https://github.com/apache/logging-log4j2/pull/1277"/>
+=======
 <!--
   ~ Licensed to the Apache Software Foundation (ASF) under one or more
   ~ contributor license agreements.  See the NOTICE file distributed with
@@ -21,6 +28,7 @@
        type="fixed">
     <issue id="1277" link="https://github.com/apache/logging-log4j2/pull/1277"/>
     <author id="adwsingh" name="Adwait Kumar Singh"/>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <description format="asciidoc">
         Replace regex with manual code to escape characters in Rfc5424Layout.
     </description>

@@ -31,7 +31,11 @@
   <parent>
     <groupId>org.apache.logging</groupId>
     <artifactId>logging-parent</artifactId>
+<<<<<<< HEAD
+    <version>11.3.0</version>
+=======
     <version>10.4.0</version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <relativePath />
   </parent>
 
@@ -130,7 +134,11 @@
       <roles>
         <role>Committer</role>
       </roles>
+<<<<<<< HEAD
+      <timezone>America/New York</timezone>
+=======
       <timezone>Asia/Kolkata</timezone>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     </developer>
 
     <developer>
@@ -230,7 +238,11 @@
     <!-- the parent POM must come first: -->
     <module>log4j-parent</module>
 
+<<<<<<< HEAD
+    <!-- Next unpublished, but internally and *implicitly* (e.g., as a plugin dependency) consumed modules in alphabetical order: -->
+=======
     <!-- Next unpublished modules in alphabetical order: -->
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <module>log4j-api-java9</module>
     <module>log4j-core-java9</module>
 
@@ -246,7 +258,10 @@
     <module>log4j-core-test</module>
     <module>log4j-couchdb</module>
     <module>log4j-docker</module>
+<<<<<<< HEAD
+=======
     <module>log4j-flume-ng</module>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <module>log4j-iostreams</module>
     <module>log4j-jakarta-smtp</module>
     <module>log4j-jakarta-web</module>
@@ -255,17 +270,27 @@
     <module>log4j-jpl</module>
     <module>log4j-jdbc-dbcp2</module>
     <module>log4j-jul</module>
+<<<<<<< HEAD
+    <module>log4j-layout-template-json</module>
+    <module>log4j-layout-template-json-test</module>
+    <module>log4j-mongodb</module>
+=======
     <module>log4j-kubernetes</module>
     <module>log4j-layout-template-json</module>
     <module>log4j-layout-template-json-test</module>
     <module>log4j-mongodb3</module>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <module>log4j-mongodb4</module>
     <module>log4j-osgi-test</module>
     <module>log4j-perf-test</module>
     <module>log4j-slf4j-impl</module>
     <module>log4j-slf4j2-impl</module>
     <module>log4j-spring-boot</module>
+<<<<<<< HEAD
+    <module>log4j-spring-cloud-config-client</module>
+=======
     <module>log4j-spring-cloud-config</module>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <module>log4j-taglib</module>
     <module>log4j-to-slf4j</module>
     <module>log4j-to-jul</module>
@@ -304,23 +329,85 @@
   <properties>
 
     <!-- project version -->
+<<<<<<< HEAD
+    <revision>2.24.3</revision>
+    <!-- Versions used on the site: no snapshots! -->
+    <site-log4j-api.version>2.24.3</site-log4j-api.version>
+    <site-log4j-core.version>2.24.3</site-log4j-core.version>
+    <site-log4j-layout-template-json.version>2.24.3</site-log4j-layout-template-json.version>
+=======
     <revision>2.22.0</revision>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!-- =================
          Common properties
          ================= -->
+<<<<<<< HEAD
+    <module.name />
+
+    <!-- `project.build.outputTimestamp` is required to be present for reproducible builds.
+         We actually inherit one from the `org.apache:apache` through our parent `org.apache.logging:logging-parent`.
+         Though inheriting this property has two undesired consequences:
+         1. `artifact:compare` dumps an `ERROR` log stating that this `property should not be inherited but defined` (apache/logging-parent#50)
+         2. This value is employed in various places while creating the distribution
+         To mitigate these, we define a *dummy* value here and let the CI replace it during a release.
+         Hence, *DO NOT MANUALLY EDIT THIS VALUE*! -->
+    <project.build.outputTimestamp>2024-12-10T10:15:05Z</project.build.outputTimestamp>
+=======
     <maven.compiler.release>8</maven.compiler.release>
     <maven.compiler.target>${maven.compiler.release}</maven.compiler.target>
     <!-- JDK version of the main Maven process (used in ASF parent POM) -->
     <minimalJavaBuildVersion>[11,12)</minimalJavaBuildVersion>
     <module.name />
     <project.build.outputTimestamp>2023-11-17T08:52:06Z</project.build.outputTimestamp>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     <!-- ========================
          Site-specific properties
          ======================== -->
     <!-- `maven-javadoc-plugin` is only used to generate Javadoc HTML used in the website.
          We don't deploy any Javadoc JARs.
+<<<<<<< HEAD
+         We also don't generate Javadoc HTML for all modules, but only for two modules: `log4j-api` and `log4j-core`.
+         Hence, we disable it by default: -->
+    <maven.javadoc.skip>true</maven.javadoc.skip>
+    <doclint>all,-missing,-html</doclint>
+    <!-- Skipping `maven-site-plugin` globally. -->
+    <maven.site.skip>true</maven.site.skip>
+    <maven.site.deploy.skip>true</maven.site.deploy.skip>
+    <site-commons-compress.version>1.27.1</site-commons-compress.version>
+    <site-commons-csv.version>1.11.0</site-commons-csv.version>
+    <site-commons-logging.version>1.3.4</site-commons-logging.version>
+    <site-conversant.version>1.2.21</site-conversant.version>
+    <site-disruptor.version>4.0.0</site-disruptor.version>
+    <site-flume.version>1.11.0</site-flume.version>
+    <site-jackson.version>2.17.2</site-jackson.version>
+    <site-jansi.version>1.18</site-jansi.version>
+    <site-javax-mail.version>1.6.2</site-javax-mail.version>
+    <site-jctools.version>4.0.5</site-jctools.version>
+    <site-je.version>18.3.12</site-je.version>
+    <site-jeromq.version>0.6.0</site-jeromq.version>
+    <site-kafka.version>3.8.0</site-kafka.version>
+    <site-logback.version>1.5.5</site-logback.version>
+    <site-slf4j.version>2.0.16</site-slf4j.version>
+
+    <!-- =====================================================
+         Direct dependency version properties (in alphabetical order)
+         ===================================================== -->
+    <log4j-docgen.version>0.9.0</log4j-docgen.version>
+    <node.version>21.7.1</node.version>
+    <npm.version>10.5.0</npm.version>
+
+    <!-- ==================================
+         `log4j-docgen`-specific properties
+         ================================== -->
+    <!-- `log4j-docgen` qualified class name exclude pattern -->
+    <log4j.docgen.typeFilter.excludePattern>^java\..+</log4j.docgen.typeFilter.excludePattern>
+    <!-- Directories where `log4j-docgen` annotation processor will emit files to -->
+    <log4j.docgen.pluginDescriptorsDir.phase1>${maven.multiModuleProjectDirectory}/target/plugin-descriptors/phase1</log4j.docgen.pluginDescriptorsDir.phase1>
+    <log4j.docgen.pluginDescriptorsDir.phase2>${maven.multiModuleProjectDirectory}/target/plugin-descriptors/phase2</log4j.docgen.pluginDescriptorsDir.phase2>
+
+=======
          We also don't generate Javadoc HTML for all modules, but only for two modules: `log4j-api` and `log4j-core`. -->
     <javadoc.doclint>all,-missing,-html</javadoc.doclint>
     <javadoc.skip>true</javadoc.skip>
@@ -328,11 +415,19 @@
          It is manually enabled only for this root module below. -->
     <maven.site.skip>true</maven.site.skip>
     <maven.site.deploy.skip>true</maven.site.deploy.skip>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   </properties>
 
   <dependencyManagement>
     <dependencies>
 
+<<<<<<< HEAD
+      <!-- List of managed dependencies (in alphabetical order) that are intended for public consumption.
+           Modules that are not used anywhere (e.g., `log4j-core-its`, `log4j-osgi-test`) should not be placed here.
+           Modules that are used only internally (e.g., `log4j-layout-template-json-test`) should be added to `dependencyManagement > dependencies` in `log4j-parent/pom.xml`. -->
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-1.2-api</artifactId>
@@ -390,7 +485,11 @@
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-flume-ng</artifactId>
+<<<<<<< HEAD
+        <version>2.23.1</version>
+=======
         <version>${project.version}</version>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       </dependency>
 
       <dependency>
@@ -437,25 +536,36 @@
 
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
+<<<<<<< HEAD
+=======
         <artifactId>log4j-kubernetes</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <artifactId>log4j-layout-template-json</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
+<<<<<<< HEAD
+        <artifactId>log4j-mongodb4</artifactId>
+=======
         <artifactId>log4j-mongodb3</artifactId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
+<<<<<<< HEAD
+        <artifactId>log4j-mongodb</artifactId>
+=======
         <artifactId>log4j-mongodb4</artifactId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <version>${project.version}</version>
       </dependency>
 
@@ -514,6 +624,8 @@
 
     <plugins>
 
+<<<<<<< HEAD
+=======
       <!-- `cyclonedx-maven-plugin` doesn't exclude not installed/deployed modules: https://github.com/CycloneDX/cyclonedx-maven-plugin/issues/409
            This `generate-sbom` execution override configures such exclusions. -->
       <plugin>
@@ -534,6 +646,7 @@
         </executions>
       </plugin>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <!-- Enable BOM flattening -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -557,6 +670,10 @@
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
+<<<<<<< HEAD
+        <version>0.16.1</version>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         <configuration>
           <consoleOutput>true</consoleOutput>
           <excludes combine.children="append">
@@ -565,14 +682,24 @@
             <exclude>src/test/resources/**/*</exclude>
             <!-- IDE settings imports -->
             <exclude>src/ide/**</exclude>
+<<<<<<< HEAD
+            <!-- Font Awesome License (Font: SIL OFL 1.1, CSS: MIT License)-->
+            <exclude>src/site/resources/font-awesome-4.7.0/css/font-awesome.css</exclude>
+            <exclude>src/site/resources/font-awesome-4.7.0/css/font-awesome.min.css</exclude>
+            <exclude>src/site/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.svg</exclude>
+=======
             <!-- jQuery is MIT-licensed, but RAT can't figure it out -->
             <exclude>src/site/resources/js/jquery.js</exclude>
             <exclude>src/site/resources/js/jquery.min.js</exclude>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             <!-- Generated files -->
             <exclude>**/.toDelete</exclude>
             <exclude>velocity.log</exclude>
             <!-- Other -->
+<<<<<<< HEAD
+=======
             <exclude>felix-cache/**</exclude>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             <exclude>**/README.md</exclude>
             <exclude>SECURITY.md</exclude>
             <exclude>**/*.yml</exclude>
@@ -583,10 +710,16 @@
             <exclude>**/rabbitmq.config</exclude>
             <exclude>**/MANIFEST.MF</exclude>
             <exclude>.surefire-*</exclude>
+<<<<<<< HEAD
+            <exclude>**/.log4j-*</exclude>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
           </excludes>
         </configuration>
       </plugin>
 
+<<<<<<< HEAD
+=======
       <!-- TODO: Remove after upgrading to `logging-parent` 10.3.0 -->
       <plugin>
         <groupId>com.github.spotbugs</groupId>
@@ -596,19 +729,44 @@
         </configuration>
       </plugin>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <forkCount>1C</forkCount>
           <reuseForks>false</reuseForks>
+<<<<<<< HEAD
+          <runOrder>random</runOrder>
+=======
           <runOrder>alphabetical</runOrder>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
           <systemPropertyVariables>
             <java.awt.headless>true</java.awt.headless>
           </systemPropertyVariables>
         </configuration>
       </plugin>
 
+<<<<<<< HEAD
+      <!--
+        ~ Adds Antora examples to the list of checked files
+        -->
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <configuration>
+          <java>
+            <includes>
+              <include>src/main/java/**/*.java</include>
+              <include>src/test/java/**/*.java</include>
+              <include>src/site/antora/modules/ROOT/examples/**/*.java</include>
+            </includes>
+          </java>
+        </configuration>
+      </plugin>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <!-- ███████ ████████  █████  ██████  ████████        ███████ ██ ████████ ███████
            ██         ██    ██   ██ ██   ██    ██    ██     ██      ██    ██    ██
            ███████    ██    ███████ ██████     ██           ███████ ██    ██    █████
@@ -616,9 +774,15 @@
            ███████    ██    ██   ██ ██   ██    ██           ███████ ██    ██    ███████
 
            This section consists of plugins responsible for generating the site.
+<<<<<<< HEAD
+           Note that only this (i.e., the root) module is supposed to have a `site` goal, it is skipped for all other modules! -->
+
+      <!-- Define `currentYear` property used by the `maven-javadoc-plugin` configuration -->
+=======
            Note that only this (i.e., the parent) module is supposed to have a `site` goal, it is skipped for all other modules! -->
 
       <!-- Define `currentYear` property used while generating the site -->
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -650,23 +814,171 @@
             </goals>
             <phase>pre-site</phase>
             <!-- This execution must be inherited and enabled by modules publishing javadocs: `-api` and `-core`.
+<<<<<<< HEAD
+                 Such modules enable this execution via `maven.javadoc.skip` property.
+=======
                  Such modules enable this execution via `javadoc.skip` property.
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
                  Hence, don't insert a `<inherited>false</inherited>`, please! -->
             <configuration combine.self="override">
               <!-- `notimestamp` avoids `diff` noise and is required for reproducible builds: https://maven.apache.org/guides/mini/guide-reproducible-builds.html -->
               <notimestamp>true</notimestamp>
+<<<<<<< HEAD
+              <skip>${maven.javadoc.skip}</skip>
+              <legacyMode>true</legacyMode>
+              <bottom><![CDATA[<p align="center">
+              Copyright &copy; {inceptionYear}-{currentYear} {organizationName}.
+              All Rights Reserved.<br/>
+              Apache, Log4j, and the Apache feather logo are trademarks or registered trademarks of {organizationName}.
+              Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+              Other names may be trademarks of their respective owners.
+            </p>]]></bottom>
+              <offlineLinks>
+                <link>
+                  <url>https://logging.apache.org/log4j/2.x/javadoc/log4j-api</url>
+                  <location>${maven.multiModuleProjectDirectory}/log4j-api/target/site/apidocs/</location>
+                </link>
+                <link>
+                  <url>https://logging.apache.org/log4j/2.x/javadoc/log4j-core</url>
+                  <location>${maven.multiModuleProjectDirectory}/log4j-core/target/site/apidocs/</location>
+                </link>
+              </offlineLinks>
+=======
               <skip>${javadoc.skip}</skip>
               <bottom><![CDATA[<p align="center">
               Copyright &copy; {inceptionYear}-{currentYear} {organizationName}.
               All Rights Reserved.<br/>
               Apache Logging, Apache Log4j, Log4j, Apache, the Apache feather logo, the Apache Logging project logo, and the Apache Log4j logo are trademarks of The Apache Software Foundation.
             </p>]]></bottom>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             </configuration>
           </execution>
         </executions>
       </plugin>
 
       <plugin>
+<<<<<<< HEAD
+
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+
+        <!-- These are dummy dependencies!
+             They are not used anywhere while running `maven-resources-plugin`.
+             `filter-antora-yml` execution above injects these `*.version` properties into `antora.yml`.
+             Later on, we use them in the manual while referencing to Maven artifacts with their versions.
+             We need these `<dependency>` entries to trick `dependabot` to update the version properties automatically.
+             No, we cannot use `${project.version}`, because it is not released yet. -->
+        <dependencies>
+
+          <!-- Other dependencies -->
+
+          <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>${site-commons-compress.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>${site-commons-csv.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${site-commons-logging.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.conversantmedia</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${site-conversant.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${site-disruptor.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.flume</groupId>
+            <artifactId>flume-ng-embedded-agent</artifactId>
+            <version>${site-flume.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.fasterxml.jackson</groupId>
+            <artifactId>jackson-bom</artifactId>
+            <version>${site-jackson.version}</version>
+            <type>pom</type>
+          </dependency>
+
+          <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>${site-jansi.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${site-javax-mail.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.jctools</groupId>
+            <artifactId>jctools-core</artifactId>
+            <version>${site-jctools.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.sleepycat</groupId>
+            <artifactId>je</artifactId>
+            <version>${site-je.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.zeromq</groupId>
+            <artifactId>jeromq</artifactId>
+            <version>${site-jeromq.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${site-kafka.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${site-logback.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${site-slf4j.version}</version>
+          </dependency>
+
+        </dependencies>
+
+        <executions>
+
+          <!-- Process `target/antora-yml` and output to `target/generated-site/antora` -->
+          <execution>
+            <id>filter-antora-yml</id>
+          </execution>
+
+          <!-- Copy `src/site` to `target/generated-site` -->
+          <execution>
+            <id>copy-site</id>
+          </execution>
+
+          <!-- Copy `target/site/apidocs` to the root module's `target/site/javadoc/<artifactId>` folder -->
+=======
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
@@ -715,6 +1027,7 @@
             </configuration>
           </execution>
           <!-- Copy `target/site/apidocs` to the parent module's `target/site/javadoc/<artifactId>` folder -->
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
           <execution>
             <id>copy-javadoc</id>
             <goals>
@@ -722,10 +1035,17 @@
             </goals>
             <phase>site</phase>
             <!-- This execution must be inherited and enabled by modules publishing javadocs: `-api` and `-core`.
+<<<<<<< HEAD
+                 Such modules enable this execution via `maven.javadoc.skip` property.
+                 Hence, don't insert a `<inherited>false</inherited>`, please! -->
+            <configuration>
+              <skip>${maven.javadoc.skip}</skip>
+=======
                  Such modules enable this execution via `javadoc.skip` property.
                  Hence, don't insert a `<inherited>false</inherited>`, please! -->
             <configuration>
               <skip>${javadoc.skip}</skip>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
               <outputDirectory>${maven.multiModuleProjectDirectory}/target/site/javadoc/${project.artifactId}</outputDirectory>
               <resources>
                 <resource>
@@ -734,6 +1054,115 @@
               </resources>
             </configuration>
           </execution>
+<<<<<<< HEAD
+
+          <!-- Copies the static resources in `src/site/resources` directly to `target/site`.
+               These resources are not handled by Antora. -->
+          <execution>
+            <id>copy-site-resources</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <phase>site</phase>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>src/site/resources</directory>
+                </resource>
+              </resources>
+              <outputDirectory>target/site</outputDirectory>
+            </configuration>
+          </execution>
+
+        </executions>
+
+      </plugin>
+
+      <plugin>
+
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-docgen-maven-plugin</artifactId>
+        <version>${log4j-docgen.version}</version>
+        <inherited>false</inherited>
+
+        <!-- Common docgen configuration -->
+        <configuration>
+
+          <!-- Descriptor processing order matters!
+
+               Imagine we place all descriptors to the same folder.
+               Assume that the filesystem walks folder contents in alphanumeric order.
+               Sourcing `log4j-docgen:generate-*` from that folder will consume descriptors in the following order:
+
+               1. `log4j-1.2.api`
+               2. `log4j-cassandra`
+               3. `log4j-core`
+               4. ...
+
+               For instance, `AbstractFilterable` is defined by the descriptors of both `log4j-cassandra` and `log4j-core`.
+               Due to alphanumeric scanning order, it will appear as it is provided by `log4j-cassandra`.
+               Though, it is actually provided by `log4j-core`.
+               To avoid this problem, we place descriptors to folders associated with phases.
+               We pass the folder of each phase in a certain order to `log4j-docgen:generate-*`. -->
+          <descriptorFileMatchers>
+            <descriptorFileMatcher>
+              <baseDirectory>${log4j.docgen.pluginDescriptorsDir.phase1}</baseDirectory>
+            </descriptorFileMatcher>
+            <descriptorFileMatcher>
+              <baseDirectory>${log4j.docgen.pluginDescriptorsDir.phase2}</baseDirectory>
+            </descriptorFileMatcher>
+          </descriptorFileMatchers>
+
+          <typeFilter>
+            <excludes>
+              <exclude>${log4j.docgen.typeFilter.excludePattern}</exclude>
+            </excludes>
+          </typeFilter>
+
+        </configuration>
+
+        <executions>
+
+          <!-- Generate AsciiDoc from downloaded plugin descriptors -->
+          <execution>
+            <id>generate-plugin-docs</id>
+            <goals>
+              <goal>generate-documentation</goal>
+            </goals>
+            <phase>pre-site</phase>
+            <configuration>
+              <templateDirectory>${project.basedir}/src/docgen</templateDirectory>
+              <indexTemplates>
+                <template>
+                  <source>index.adoc.ftl</source>
+                  <target>${project.build.directory}/generated-site/antora/modules/ROOT/pages/plugin-reference.adoc</target>
+                </template>
+              </indexTemplates>
+              <typeTemplates>
+                <template>
+                  <source>type.adoc.ftl</source>
+                  <target>${project.build.directory}/generated-site/antora/modules/ROOT/pages/_plugin-reference/%g-%a-%c.adoc</target>
+                </template>
+              </typeTemplates>
+            </configuration>
+          </execution>
+
+          <!-- Generate XSD from downloaded plugin descriptors -->
+          <execution>
+            <id>generate-plugin-schema</id>
+            <goals>
+              <goal>generate-schema</goal>
+            </goals>
+            <phase>site</phase>
+            <configuration>
+              <schemaVersion>${project.version}</schemaVersion>
+              <schemaFile>${project.build.directory}/log4j-config.xsd</schemaFile>
+            </configuration>
+          </execution>
+
+        </executions>
+
+=======
         </executions>
       </plugin>
 
@@ -813,6 +1242,7 @@
             </configuration>
           </execution>
         </executions>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       </plugin>
 
       <!-- ███████ ███    ██ ██████         ███████ ██ ████████ ███████
@@ -827,6 +1257,9 @@
 
   <profiles>
 
+<<<<<<< HEAD
+    <!-- `java8-tests` profile to force using Java 8 while running tests -->
+=======
     <profile>
       <id>java8-doclint-disabled</id>
       <activation>
@@ -837,6 +1270,7 @@
       </properties>
     </profile>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <profile>
       <id>java8-tests</id>
       <activation>
@@ -845,22 +1279,67 @@
           <value>true</value>
         </property>
       </activation>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <build>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
+<<<<<<< HEAD
+            <!-- There are certain Java 8 bugs[1] that cause Mockito failures[2].
+                 Adding necessary dependencies to workaround them.
+                 [1] https://bugs.openjdk.org/browse/JDK-8152174
+                 [2] https://github.com/mockito/mockito/issues/1449 -->
+            <dependencies>
+              <dependency>
+                <groupId>org.jspecify</groupId>
+                <artifactId>jspecify</artifactId>
+                <version>${jspecify.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <!-- Modifies only the `default-test` run -->
+              <execution>
+                <id>default-test</id>
+                <configuration>
+                  <jdkToolchain>
+                    <version>[1.8, 9)</version>
+                  </jdkToolchain>
+                </configuration>
+              </execution>
+            </executions>
+=======
             <configuration>
               <jdkToolchain>
                 <version>[1.8, 9)</version>
               </jdkToolchain>
             </configuration>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
           </plugin>
         </plugins>
       </build>
     </profile>
 
     <profile>
+<<<<<<< HEAD
+      <id>rerun-tests</id>
+      <activation>
+        <property>
+          <name>env.CI</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <properties>
+        <surefire.rerunFailingTestsCount>2</surefire.rerunFailingTestsCount>
+      </properties>
+    </profile>
+
+    <profile>
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <id>sequential-tests</id>
       <build>
         <plugins>
@@ -875,6 +1354,45 @@
       </build>
     </profile>
 
+<<<<<<< HEAD
+    <profile>
+      <id>rewrite</id>
+
+      <properties>
+        <skipTests>true</skipTests>
+      </properties>
+
+      <build>
+        <defaultGoal>clean package rewrite:runNoFork spotless:apply</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+            <version>5.13.0</version>
+            <configuration>
+              <activeRecipes>
+                <activeRecipe>org.openrewrite.java.logging.log4j.ParameterizedLogging</activeRecipe>
+              </activeRecipes>
+            </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>org.openrewrite.recipe</groupId>
+                <artifactId>rewrite-migrate-java</artifactId>
+                <version>2.3.0</version>
+              </dependency>
+              <dependency>
+                <groupId>org.openrewrite.recipe</groupId>
+                <artifactId>rewrite-logging-frameworks</artifactId>
+                <version>2.1.0</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   </profiles>
 
 </project>

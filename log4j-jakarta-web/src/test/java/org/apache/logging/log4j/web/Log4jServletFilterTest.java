@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.web;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertThrows;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.BDDMockito.given;

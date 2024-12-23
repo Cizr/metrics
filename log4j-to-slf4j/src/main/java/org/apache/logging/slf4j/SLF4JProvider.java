@@ -18,14 +18,43 @@ package org.apache.logging.slf4j;
 
 import aQute.bnd.annotation.Resolution;
 import aQute.bnd.annotation.spi.ServiceProvider;
+<<<<<<< HEAD
+import org.apache.logging.log4j.spi.LoggerContextFactory;
 import org.apache.logging.log4j.spi.Provider;
+import org.apache.logging.log4j.spi.ThreadContextMap;
+import org.jspecify.annotations.NullMarked;
+=======
+import org.apache.logging.log4j.spi.Provider;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 /**
  * Bind the Log4j API to SLF4J.
  */
+<<<<<<< HEAD
+@NullMarked
+@ServiceProvider(value = Provider.class, resolution = Resolution.OPTIONAL)
+public class SLF4JProvider extends Provider {
+
+    private static final LoggerContextFactory CONTEXT_FACTORY = new SLF4JLoggerContextFactory();
+    private static final ThreadContextMap THREAD_CONTEXT_MAP = new MDCContextMap();
+
+    public SLF4JProvider() {
+        super(15, CURRENT_VERSION, SLF4JLoggerContextFactory.class, MDCContextMap.class);
+    }
+
+    @Override
+    public LoggerContextFactory getLoggerContextFactory() {
+        return CONTEXT_FACTORY;
+    }
+
+    @Override
+    public ThreadContextMap getThreadContextMapInstance() {
+        return THREAD_CONTEXT_MAP;
+=======
 @ServiceProvider(value = Provider.class, resolution = Resolution.OPTIONAL)
 public class SLF4JProvider extends Provider {
     public SLF4JProvider() {
         super(15, "2.6.0", SLF4JLoggerContextFactory.class, MDCContextMap.class);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

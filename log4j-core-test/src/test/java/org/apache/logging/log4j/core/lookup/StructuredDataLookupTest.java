@@ -17,7 +17,12 @@
 package org.apache.logging.log4j.core.lookup;
 
 import static org.apache.logging.log4j.util.Strings.toRootUpperCase;
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

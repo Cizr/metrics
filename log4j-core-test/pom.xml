@@ -16,13 +16,32 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<<<<<<< HEAD
+
   <modelVersion>4.0.0</modelVersion>
+
+=======
+  <modelVersion>4.0.0</modelVersion>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <parent>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>${revision}</version>
     <relativePath>../log4j-parent</relativePath>
   </parent>
+<<<<<<< HEAD
+
+  <artifactId>log4j-core-test</artifactId>
+
+  <name>Apache Log4j Core Tests</name>
+  <description>The Apache Log4j Implementation Tests</description>
+
+  <properties>
+    <log4j.docgen.skip>true</log4j.docgen.skip>
+    <!-- Ignore less important (high rank) bugs for test artifacts -->
+    <spotbugs.maxRank>9</spotbugs.maxRank>
+
+=======
   <artifactId>log4j-core-test</artifactId>
   <packaging>jar</packaging>
   <name>Apache Log4j Core Tests</name>
@@ -34,6 +53,7 @@
     <!-- Dependency versions -->
     <slf4j-ext.version>${slf4j.version}</slf4j-ext.version>
 
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <!--
       ~ OSGi and JPMS options
       -->
@@ -55,11 +75,22 @@
       org.hamcrest;transitive=false,
       org.junit.jupiter.api;transitive=false,
       <!-- Name changes -->
+<<<<<<< HEAD
+      java.allocation.instrumenter;substitute="java-allocation-instrumenter",
+      spring.test;substitute="spring-test"
+    </bnd-extra-module-options>
+
+    <!-- Additional version of LMAX Disruptor to test -->
+    <disruptor4.version>4.0.0</disruptor4.version>
+  </properties>
+
+=======
       org.assertj.core;substitute="assertj-core",
       java.allocation.instrumenter;substitute="java-allocation-instrumenter",
       spring.test;substitute="spring-test"
     </bnd-extra-module-options>
   </properties>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
   <dependencies>
     <!-- Pull in useful test classes from API -->
     <dependency>
@@ -107,6 +138,12 @@
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-commons</artifactId>
     </dependency>
+<<<<<<< HEAD
+    <!-- Needed for JNDI mocks using `org.springframework.mock.jndi` -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+=======
     <!-- Useful mock classes and utilities -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -117,6 +154,7 @@
           <artifactId>spring-jcl</artifactId>
         </exclusion>
       </exclusions>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     </dependency>
     <!-- JNDI and JMS tests -->
     <dependency>
@@ -175,12 +213,20 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+<<<<<<< HEAD
+      <groupId>org.apache.groovy</groupId>
+=======
       <groupId>org.codehaus.groovy</groupId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <artifactId>groovy-dateutil</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
+<<<<<<< HEAD
+      <groupId>org.apache.groovy</groupId>
+=======
       <groupId>org.codehaus.groovy</groupId>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <artifactId>groovy-jsr223</artifactId>
       <scope>test</scope>
     </dependency>
@@ -304,6 +350,8 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+<<<<<<< HEAD
+=======
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.framework</artifactId>
       <scope>test</scope>
@@ -315,10 +363,13 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
       <scope>test</scope>
     </dependency>
+<<<<<<< HEAD
+=======
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -330,6 +381,7 @@
       <artifactId>slf4j-ext</artifactId>
       <scope>test</scope>
     </dependency>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     <!-- Used for testing HttpAppender -->
     <dependency>
       <groupId>com.github.tomakehurst</groupId>
@@ -361,6 +413,102 @@
 
   <build>
     <plugins>
+<<<<<<< HEAD
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>test-disruptor-4</id>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <additionalClasspathDependencies>
+                <dependency>
+                  <groupId>com.lmax</groupId>
+                  <artifactId>disruptor</artifactId>
+                  <version>${disruptor4.version}</version>
+                </dependency>
+              </additionalClasspathDependencies>
+              <classpathDependencyExcludes>
+                <classpathDependencyExclude>com.lmax:disruptor</classpathDependencyExclude>
+              </classpathDependencyExcludes>
+              <groups>org.apache.logging.log4j.core.test.categories.AsyncLoggers</groups>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <profiles>
+
+    <!-- Fixes incompatible with Java 8 -->
+    <profile>
+
+      <id>java8-incompat-fixes</id>
+
+      <!-- CI uses Java 8 for running tests.
+           Hence, we assume CI=Java8 and apply our changes elsewhere.
+
+           One might think why not activate using `<jdk>[16,)` instead?
+           This doesn't work, since the match is not against "the JDK running tests", but "the JDK running Maven".
+           These two JDKs can differ due to Maven Toolchains.
+           See `java8-tests` profile in `/pom.xml` for details. -->
+      <activation>
+        <property>
+          <name>!env.CI</name>
+        </property>
+      </activation>
+
+      <!-- JEP-335 has deprecated the built-in JavaScript engine (Nashorn) in Java 11, and JEP-372 removed it in Java 15.
+           We are adding it back for tests that use JavaScript. -->
+      <dependencies>
+        <dependency>
+          <groupId>org.openjdk.nashorn</groupId>
+          <artifactId>nashorn-core</artifactId>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+
+      <!-- Illegal access is disabled by default in Java 16 due to JEP-396.
+           We are relaxing it for tests. -->
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <argLine>--add-opens java.base/java.lang=ALL-UNNAMED
+                --add-opens java.base/java.net=ALL-UNNAMED
+                --add-opens java.base/java.util=ALL-UNNAMED</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+
+    </profile>
+
+    <!--
+      ~ Dummy profile to force Dependabot to upgrade `disruptor4.version`.
+      ~ Using this profile causes a compilation error.
+      -->
+    <profile>
+      <id>disruptor-4</id>
+      <dependencies>
+        <dependency>
+          <groupId>com.lmax</groupId>
+          <artifactId>disruptor</artifactId>
+          <version>${disruptor4.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
+
+=======
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -381,4 +529,5 @@
       </plugin>
     </plugins>
   </build>
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 </project>

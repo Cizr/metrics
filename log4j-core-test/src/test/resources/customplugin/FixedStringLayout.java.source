@@ -26,6 +26,14 @@ import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 import org.apache.logging.log4j.core.layout.AbstractStringLayout;
 
+<<<<<<< HEAD
+/**
+ * A plugin template used in PluginManagerTest and ResolverUtilTest.
+ *
+ * The tests modify and compile this class themselves.
+ */
+=======
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 @Plugin(name = "FixedString", category = "Core", elementType = "layout", printObject = true)
 public class FixedStringLayout extends AbstractStringLayout {
 

@@ -20,7 +20,16 @@ import static org.apache.logging.log4j.layout.template.json.TestHelpers.asMap;
 import static org.apache.logging.log4j.layout.template.json.TestHelpers.writeJson;
 import static org.assertj.core.api.Assertions.assertThat;
 
+<<<<<<< HEAD
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+=======
 import java.io.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;

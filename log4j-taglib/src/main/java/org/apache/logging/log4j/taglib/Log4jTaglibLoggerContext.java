@@ -16,11 +16,23 @@
  */
 package org.apache.logging.log4j.taglib;
 
+<<<<<<< HEAD
+import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import javax.servlet.ServletContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.message.MessageFactory;
+import org.apache.logging.log4j.message.ParameterizedMessageFactory;
+=======
 import java.util.WeakHashMap;
 import javax.servlet.ServletContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.message.MessageFactory;
 import org.apache.logging.log4j.spi.AbstractLogger;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.apache.logging.log4j.spi.ExtendedLogger;
 import org.apache.logging.log4j.spi.LoggerContext;
 import org.apache.logging.log4j.spi.LoggerRegistry;
@@ -32,12 +44,28 @@ import org.apache.logging.log4j.spi.LoggerRegistry;
  * @since 2.0
  */
 final class Log4jTaglibLoggerContext implements LoggerContext {
+<<<<<<< HEAD
+
+    private static final ReadWriteLock LOCK = new ReentrantReadWriteLock();
+
+    private static final Lock READ_LOCK = LOCK.readLock();
+
+    private static final Lock WRITE_LOCK = LOCK.writeLock();
+
+    private static final Map<ServletContext, Log4jTaglibLoggerContext> LOGGER_CONTEXT_BY_SERVLET_CONTEXT =
+            new WeakHashMap<>();
+
+    private static final MessageFactory DEFAULT_MESSAGE_FACTORY = ParameterizedMessageFactory.INSTANCE;
+
+    private final LoggerRegistry<Log4jTaglibLogger> loggerRegistry = new LoggerRegistry<>();
+=======
     // These were change to WeakHashMaps to avoid ClassLoader (memory) leak, something that's particularly
     // important in Servlet containers.
     private static final WeakHashMap<ServletContext, Log4jTaglibLoggerContext> CONTEXTS = new WeakHashMap<>();
 
     private final LoggerRegistry<Log4jTaglibLogger> loggerRegistry =
             new LoggerRegistry<>(new LoggerRegistry.WeakMapFactory<Log4jTaglibLogger>());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
     private final ServletContext servletContext;
 
@@ -47,16 +75,41 @@ final class Log4jTaglibLoggerContext implements LoggerContext {
 
     @Override
     public Object getExternalContext() {
+<<<<<<< HEAD
+        return servletContext;
+=======
         return this.servletContext;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public Log4jTaglibLogger getLogger(final String name) {
+<<<<<<< HEAD
+        return getLogger(name, DEFAULT_MESSAGE_FACTORY);
+=======
         return this.getLogger(name, null);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public Log4jTaglibLogger getLogger(final String name, final MessageFactory messageFactory) {
+<<<<<<< HEAD
+        final MessageFactory effectiveMessageFactory =
+                messageFactory != null ? messageFactory : DEFAULT_MESSAGE_FACTORY;
+        final Log4jTaglibLogger oldLogger = loggerRegistry.getLogger(name, effectiveMessageFactory);
+        if (oldLogger != null) {
+            return oldLogger;
+        }
+        final Log4jTaglibLogger newLogger = createLogger(name, effectiveMessageFactory);
+        loggerRegistry.putIfAbsent(name, effectiveMessageFactory, newLogger);
+        return loggerRegistry.getLogger(name, effectiveMessageFactory);
+    }
+
+    private Log4jTaglibLogger createLogger(final String name, final MessageFactory messageFactory) {
+        final LoggerContext loggerContext = LogManager.getContext(false);
+        final ExtendedLogger delegateLogger = loggerContext.getLogger(name, messageFactory);
+        return new Log4jTaglibLogger(delegateLogger, name, delegateLogger.getMessageFactory());
+=======
         // Note: This is the only method where we add entries to the 'loggerRegistry' ivar.
         Log4jTaglibLogger logger = this.loggerRegistry.getLogger(name, messageFactory);
         if (logger != null) {
@@ -77,16 +130,27 @@ final class Log4jTaglibLoggerContext implements LoggerContext {
         }
 
         return logger;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public boolean hasLogger(final String name) {
+<<<<<<< HEAD
+        return loggerRegistry.hasLogger(name, DEFAULT_MESSAGE_FACTORY);
+=======
         return loggerRegistry.hasLogger(name);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
     public boolean hasLogger(final String name, final MessageFactory messageFactory) {
+<<<<<<< HEAD
+        final MessageFactory effectiveMessageFactory =
+                messageFactory != null ? messageFactory : DEFAULT_MESSAGE_FACTORY;
+        return loggerRegistry.hasLogger(name, effectiveMessageFactory);
+=======
         return loggerRegistry.hasLogger(name, messageFactory);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
@@ -94,6 +158,28 @@ final class Log4jTaglibLoggerContext implements LoggerContext {
         return loggerRegistry.hasLogger(name, messageFactoryClass);
     }
 
+<<<<<<< HEAD
+    static Log4jTaglibLoggerContext getInstance(final ServletContext servletContext) {
+
+        // Get the associated logger context, if exists
+        READ_LOCK.lock();
+        try {
+            final Log4jTaglibLoggerContext loggerContext = LOGGER_CONTEXT_BY_SERVLET_CONTEXT.get(servletContext);
+            if (loggerContext != null) {
+                return loggerContext;
+            }
+        } finally {
+            READ_LOCK.unlock();
+        }
+
+        // Create the logger context
+        WRITE_LOCK.lock();
+        try {
+            return LOGGER_CONTEXT_BY_SERVLET_CONTEXT.computeIfAbsent(servletContext, Log4jTaglibLoggerContext::new);
+        } finally {
+            WRITE_LOCK.unlock();
+        }
+=======
     static synchronized Log4jTaglibLoggerContext getInstance(final ServletContext servletContext) {
         Log4jTaglibLoggerContext loggerContext = CONTEXTS.get(servletContext);
         if (loggerContext != null) {
@@ -109,5 +195,6 @@ final class Log4jTaglibLoggerContext implements LoggerContext {
         }
 
         return loggerContext;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

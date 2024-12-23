@@ -16,7 +16,21 @@
  */
 package org.apache.logging.log4j.core.appender.rolling;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+=======
 import java.io.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import java.nio.charset.StandardCharsets;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.appender.RollingFileAppender;
@@ -26,8 +40,13 @@ import org.apache.logging.log4j.core.config.NullConfiguration;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 import org.apache.logging.log4j.core.lookup.StrSubstitutor;
 import org.apache.logging.log4j.core.util.IOUtils;
+<<<<<<< HEAD
+import org.junit.Test;
+import org.junitpioneer.jupiter.Issue;
+=======
 import org.junit.Assert;
 import org.junit.Test;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 public class RollingFileManagerTest {
 
@@ -75,6 +94,16 @@ public class RollingFileManagerTest {
                     .withPolicy(new SizeBasedTriggeringPolicy(100))
                     .build();
 
+<<<<<<< HEAD
+            assertNotNull(appender);
+            final String testContent = "Test";
+            try (final RollingFileManager manager = appender.getManager()) {
+                assertEquals(file.getAbsolutePath(), manager.getFileName());
+                manager.writeToDestination(testContent.getBytes(StandardCharsets.US_ASCII), 0, testContent.length());
+            }
+            try (final Reader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.US_ASCII)) {
+                assertEquals(testContent, IOUtils.toString(reader));
+=======
             Assert.assertNotNull(appender);
             final String testContent = "Test";
             try (final RollingFileManager manager = appender.getManager()) {
@@ -83,6 +112,7 @@ public class RollingFileManagerTest {
             }
             try (final Reader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.US_ASCII)) {
                 Assert.assertEquals(testContent, IOUtils.toString(reader));
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             }
         }
     }
@@ -125,7 +155,11 @@ public class RollingFileManagerTest {
                 null,
                 null,
                 configuration);
+<<<<<<< HEAD
+        assertNotNull(manager);
+=======
         Assert.assertNotNull(manager);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         manager.initialize();
 
         // Get the initialTime of this original log file
@@ -139,9 +173,50 @@ public class RollingFileManagerTest {
         manager.rollover();
 
         // If the rollover fails, then the size should not be reset
+<<<<<<< HEAD
+        assertNotEquals(0, manager.getFileSize());
+
+        // The initialTime should not have changed
+        assertEquals(initialTime, manager.getFileTime());
+    }
+
+    @Test
+    @Issue("https://github.com/apache/logging-log4j2/issues/1645")
+    public void testCreateParentDir() {
+        final Configuration configuration = new NullConfiguration();
+        final RollingFileManager manager = RollingFileManager.getFileManager(
+                null,
+                "testCreateParentDir.log.%d{yyyy-MM-dd}",
+                true,
+                false,
+                NoOpTriggeringPolicy.INSTANCE,
+                DirectWriteRolloverStrategy.newBuilder()
+                        .withConfig(configuration)
+                        .build(),
+                null,
+                PatternLayout.createDefaultLayout(configuration),
+                0,
+                true,
+                true,
+                null,
+                null,
+                null,
+                configuration);
+        assertNotNull(manager);
+        try {
+            final File file = new File("file_in_current_dir.log");
+            assertNull(file.getParentFile());
+            manager.createParentDir(file);
+        } catch (final Throwable t) {
+            fail("createParentDir failed: " + t.getMessage());
+        } finally {
+            manager.close();
+        }
+=======
         Assert.assertNotEquals(0, manager.getFileSize());
 
         // The initialTime should not have changed
         Assert.assertEquals(initialTime, manager.getFileTime());
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 }

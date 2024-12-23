@@ -99,7 +99,11 @@ public final class MessageResolver implements EventResolver {
         if (stringified && fallbackKey != null) {
             throw new IllegalArgumentException("fallbackKey is not allowed when stringified is enable: " + config);
         }
+<<<<<<< HEAD
+        return stringified ? createStringResolver() : createObjectResolver(fallbackKey);
+=======
         return stringified ? createStringResolver(fallbackKey) : createObjectResolver(fallbackKey);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     @Override
@@ -107,9 +111,14 @@ public final class MessageResolver implements EventResolver {
         internalResolver.resolve(logEvent, jsonWriter);
     }
 
+<<<<<<< HEAD
+    private static EventResolver createStringResolver() {
+        return (final LogEvent logEvent, final JsonWriter jsonWriter) -> resolveString(null, logEvent, jsonWriter);
+=======
     private static EventResolver createStringResolver(final String fallbackKey) {
         return (final LogEvent logEvent, final JsonWriter jsonWriter) ->
                 resolveString(fallbackKey, logEvent, jsonWriter);
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
     }
 
     private static void resolveString(final String fallbackKey, final LogEvent logEvent, final JsonWriter jsonWriter) {

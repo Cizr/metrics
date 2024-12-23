@@ -16,7 +16,15 @@
  */
 package org.apache.logging.log4j.core.appender.db.jpa;
 
+<<<<<<< HEAD
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+=======
 import static org.junit.Assert.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
@@ -32,7 +40,10 @@ import org.apache.logging.log4j.core.config.ConfigurationFactory;
 import org.apache.logging.log4j.core.config.DefaultConfiguration;
 import org.apache.logging.log4j.core.test.categories.Appenders;
 import org.apache.logging.log4j.status.StatusLogger;
+<<<<<<< HEAD
+=======
 import org.apache.logging.log4j.util.PropertiesUtil;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -53,7 +64,10 @@ public abstract class AbstractJpaAppenderTest {
         System.setProperty(
                 ConfigurationFactory.CONFIGURATION_FILE_PROPERTY,
                 "org/apache/logging/log4j/core/appender/db/jpa/" + configFileName);
+<<<<<<< HEAD
+=======
         PropertiesUtil.getProperties().reload();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
         final LoggerContext context = LoggerContext.getContext(false);
         if (context.getConfiguration() instanceof DefaultConfiguration) {
             context.reconfigure();
@@ -71,7 +85,10 @@ public abstract class AbstractJpaAppenderTest {
             ((JpaAppender) appender).getManager().close();
         } finally {
             System.clearProperty(ConfigurationFactory.CONFIGURATION_FILE_PROPERTY);
+<<<<<<< HEAD
+=======
             PropertiesUtil.getProperties().reload();
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
             context.reconfigure();
             StatusLogger.getLogger().reset();
 

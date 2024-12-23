@@ -16,7 +16,11 @@
  */
 package org.apache.logging.log4j.core.util;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertTrue;
+=======
 import static org.junit.jupiter.api.Assertions.*;
+>>>>>>> 1ead477e44ef3058b5f58f3f62dcf08366b87f1c
 
 import org.junit.jupiter.api.Test;
 
